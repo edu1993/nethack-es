@@ -1195,11 +1195,11 @@ make_gas_cloud(
     add_region(cloud);
 
     if (!gi.in_mklev && !inside_cloud && is_hero_inside_gas_cloud()) {
-        You("are enveloped in a cloud of %s!",
+        You("estás envuelto en una nube de %s!",
             /* FIXME: "steam" is wrong if this cloud is just the trail of
                a fog cloud's movement; changing to "vapor" would handle
                that but seems a step backward when it really is steam */
-            damage ? "noxious gas" : "steam");
+            damage ? "gas nocivo" : "vapor");
         iflags.last_msg = PLNMSG_ENVELOPED_IN_GAS;
     }
 }

@@ -760,7 +760,7 @@ digactualhole(coordxy x, coordxy y, struct monst *madeby, int ttyp)
 
             /* check for leashed pet that can't fall right now */
             if (!u.ustuck && !wont_fall && !next_to_u()) {
-                You("are jerked back by your pet!");
+                You("eres jalado hacia atrás por tu mascota!");
                 wont_fall = TRUE;
             }
 

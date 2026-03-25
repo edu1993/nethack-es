@@ -539,7 +539,7 @@ wiz_panic(void)
         return ECMD_OK;
     }
     if (paranoid_query(TRUE,
-                       "Do you want to call panic() and end your game?"))
+                       "¿Querés llamar a panic() y terminar tu partida?"))
         panic("Crash test (#panic).");
     return ECMD_OK;
 }
@@ -549,12 +549,12 @@ int
 wiz_fuzzer(void)
 {
     if (flags.suppress_alert < FEATURE_NOTICE_VER(3,7,0)) {
-        pline("The fuzz tester will make NetHack execute random keypresses.");
-        There("is no conventional way out of this mode.");
+        pline("El fuzz tester hará que NetHack ejecute teclas al azar.");
+        There("no hay una forma convencional de salir de este modo.");
     }
-    if (paranoid_query(TRUE, "Do you want to start fuzz testing?")) {
+    if (paranoid_query(TRUE, "¿Querés empezar el fuzz testing?")) {
         /* Thoth, take the reins */
-        if (y_n("Do you want to call panic() after impossible()?") == 'n') {
+        if (y_n("¿Querés llamar a panic() después de impossible()?") == 'n') {
             iflags.debug_fuzzer = fuzzer_impossible_continue;
         } else {
             iflags.debug_fuzzer = fuzzer_impossible_panic;

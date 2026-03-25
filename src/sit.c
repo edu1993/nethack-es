@@ -192,7 +192,7 @@ throne_sit_effect(void)
             }
             break;
         case 12:
-            You("are granted an insight!");
+            You("se te concede una visión!");
             if (gi.invent) {
                 /* rn2(5) agrees w/seffects() */
                 identify_pack(rn2(5), FALSE);
@@ -400,7 +400,7 @@ dosit(void)
     int typ = levl[u.ux][u.uy].typ;
 
     if (u.usteed) {
-        You("are already sitting on %s.", mon_nam(u.usteed));
+        You("ya estás sentado en %s.", mon_nam(u.usteed));
         return ECMD_OK;
     }
     if (u.uundetected && is_hider(gy.youmonst.data)
@@ -413,7 +413,7 @@ dosit(void)
         else if (Levitation)
             You("tumble in place.");
         else
-            You("are sitting on air.");
+            You("estás sentado en el aire.");
         return ECMD_OK;
     } else if (u.ustuck && !sticks(gy.youmonst.data)) {
         /* holding monster is next to hero rather than beneath, but

@@ -1916,7 +1916,7 @@ getobj(
     for (;;) {
         cnt = 0L;
         cntgiven = FALSE;
-        Sprintf(qbuf, "What do you want to %s?", word);
+        Sprintf(qbuf, "¿Qué querés %s?", word);
         if (gi.in_doagain) {
             ilet = readchar();
         } else if (iflags.force_invmenu) {
@@ -1938,7 +1938,7 @@ getobj(
             long tmpcnt = 0L;
 
             if (!allowcnt) {
-                pline("No count allowed with this command.");
+                pline("No se permite cantidad con este comando.");
                 continue;
             }
             ilet = get_count(NULL, ilet, LARGEST_INT, &tmpcnt, GC_SAVEHIST);

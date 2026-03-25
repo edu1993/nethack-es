@@ -1336,8 +1336,8 @@ gulpmu(struct monst *mtmp, struct attack *mattk)
         reset_occupations(); /* behave as if you had moved */
 
         if (u.utrap) {
-            You("are released from the %s!",
-                (u.utraptype == TT_WEB) ? "web" : "trap");
+            You("estás liberado de la %s!",
+                (u.utraptype == TT_WEB) ? "telaraña" : "trampa");
             reset_utrap(FALSE);
         }
 
@@ -1432,24 +1432,24 @@ gulpmu(struct monst *mtmp, struct attack *mattk)
     case AD_PHYS:
         physical_damage = TRUE;
         if (mtmp->data == &mons[PM_FOG_CLOUD]) {
-            You("are laden with moisture and %s",
+            You("estás cubierto de humedad y %s",
                 flaming(gy.youmonst.data)
-                    ? "are smoldering out!"
-                    : Breathless ? "find it mildly uncomfortable."
+                    ? "estás ahumándote"
+                    : Breathless ? "lo encuentras ligeramente incómodo."
                                  : amphibious(gy.youmonst.data)
-                                       ? "feel comforted."
-                                       : "can barely breathe!");
+                                       ? "te sientes reconfortado."
+                                       : "apenas puedes respirar!");
             if ((Amphibious || Breathless) && !flaming(gy.youmonst.data))
                 tmp = 0;
         } else {
-            You("are %s!", enfolds(mtmp->data) ? "being squashed"
-                                               : "pummeled with debris");
+            You("estás %s!", enfolds(mtmp->data) ? "siendo aplastado"
+                                               : "siendo golpeado con escombros");
             exercise(A_STR, FALSE);
         }
         break;
     case AD_ACID:
         if (Acid_resistance) {
-            You("are covered with a seemingly harmless goo.");
+            You("estás cubierto con una baba aparentemente inofensiva.");
             /* NB: the monst[un]seesu calls in gulpmu are no-ops since the
                hero must be currently swallowed for the attack to hit... */
             monstseesu(M_SEEN_ACID);
@@ -1458,7 +1458,7 @@ gulpmu(struct monst *mtmp, struct attack *mattk)
             if (Hallucination)
                 pline("Ouch!  You've been slimed!");
             else
-                You("are covered in slime!  It burns!");
+                You("estás cubierto de baba! ¡Quema!");
             exercise(A_STR, FALSE);
             monstunseesu(M_SEEN_ACID);
         }
@@ -1503,7 +1503,7 @@ gulpmu(struct monst *mtmp, struct attack *mattk)
                 ugolemeffects(AD_COLD, tmp);
                 tmp = 0;
             } else {
-                You("are freezing to death!");
+                You("te estás congelando hasta la muerte!");
                 monstunseesu(M_SEEN_COLD);
             }
         } else
@@ -1518,7 +1518,7 @@ gulpmu(struct monst *mtmp, struct attack *mattk)
                 ugolemeffects(AD_FIRE, tmp);
                 tmp = 0;
             } else {
-                You("are burning to a crisp!");
+                You("te estás quemando hasta quedar hecho una brasas!");
                 monstunseesu(M_SEEN_FIRE);
             }
             burn_away_slime();
@@ -1617,7 +1617,7 @@ explmu(struct monst *mtmp, struct attack *mattk, boolean ufound)
         if (ufound && !not_affected) {
             /* sometimes you're affected even if it's invisible */
             if (mon_visible(mtmp) || (rnd(tmp /= 2) > u.ulevel)) {
-                You("are blinded by a blast of light!");
+                You("estás cegado por una explosión de luz!");
                 make_blinded((long) tmp, FALSE);
                 if (!Blind)
                     Your1(vision_clears);
@@ -1632,13 +1632,13 @@ explmu(struct monst *mtmp, struct attack *mattk, boolean ufound)
         if (ufound && !not_affected) {
             boolean chg;
             if (!Hallucination)
-                You("are caught in a blast of kaleidoscopic light!");
+                You("estás atrapado en una explosión de luz caleidoscópica!");
             /* avoid hallucinating the black light as it dies */
             mondead(mtmp);    /* remove it from map now */
             kill_agr = FALSE; /* already killed (maybe lifesaved) */
             chg =
                 make_hallucinated(HHallucination + (long) tmp, FALSE, 0L);
-            You("%s.", chg ? "are freaked out" : "seem unaffected");
+            You("%s.", chg ? "estás aterrorizado" : "pareces no estar afectado");
         }
         break;
     default:
@@ -1646,7 +1646,7 @@ explmu(struct monst *mtmp, struct attack *mattk, boolean ufound)
         break;
     }
     if (not_affected) {
-        You("seem unaffected by it.");
+        You("pareces no estar afectado por ello.");
         ugolemeffects((int) mattk->adtyp, tmp);
     }
     if (kill_agr && !DEADMONSTER(mtmp))
@@ -1761,7 +1761,7 @@ gazemu(struct monst *mtmp, struct attack *mattk)
                     pline_mon(mtmp, "%s gaze confuses you!",
                               s_suffix(Monnam(mtmp)));
                 else
-                    You("are getting more and more confused.");
+                    You("estás cada vez más confundido.");
                 make_confused(HConfusion + conf, FALSE);
                 stop_occupation();
             }
@@ -1795,7 +1795,7 @@ gazemu(struct monst *mtmp, struct attack *mattk)
             } else {
                 int blnd = d((int) mattk->damn, (int) mattk->damd);
 
-                You("are blinded by %s radiance!", s_suffix(mon_nam(mtmp)));
+                You("estás cegado por el resplandor de %s!", s_suffix(mon_nam(mtmp)));
                 make_blinded((long) blnd, FALSE);
                 stop_occupation();
                 /* not blind at this point implies you're wearing
@@ -2182,13 +2182,13 @@ doseduce(struct monst *mon)
                 u.uenmax = 0;
             break;
         case 1:
-            You("are down in the dumps.");
+            You("estás deprimido.");
             (void) adjattrib(A_CON, -1, TRUE);
             exercise(A_CON, FALSE);
             disp.botl = TRUE;
             break;
         case 2:
-            Your("senses are dulled.");
+            Your("sentidos están embotados.");
             (void) adjattrib(A_WIS, -1, TRUE);
             exercise(A_WIS, FALSE);
             disp.botl = TRUE;

@@ -1945,7 +1945,7 @@ use_offensive(struct monst *mtmp)
         }
         gm.m_using = TRUE;
         if (!Blind && !resists_blnd(&gy.youmonst)) {
-            You("are blinded by the flash of light!");
+            You("estás cegado por el destello de luz!");
             make_blinded(BlindedTimeout + (long) rnd(1 + 50), FALSE);
         }
         lightdamage(otmp, TRUE, 5);
@@ -1975,7 +1975,7 @@ use_offensive(struct monst *mtmp)
             ignite_items(mtmp->minvent);
             num = (2 * (rn1(3, 3) + 2 * bcsign(otmp)) + 1) / 3;
             if (Fire_resistance)
-                You("are not harmed.");
+                You("no estás herido.");
             burn_away_slime();
             if (Half_spell_damage)
                 num = (num + 1) / 2;
@@ -2641,7 +2641,7 @@ you_aggravate(struct monst *mtmp)
     docrt();
     if (unconscious()) {
         gm.multi = -1;
-        gn.nomovemsg = "Aggravated, you are jolted into full consciousness.";
+        gn.nomovemsg = "Irritado, eres sacudido a la plena conciencia.";
     }
     newsym(mtmp->mx, mtmp->my);
     if (!canspotmon(mtmp))

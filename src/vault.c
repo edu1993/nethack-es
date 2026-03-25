@@ -111,7 +111,7 @@ clear_fcorr(struct monst *grd, boolean forceshow)
        died: no message, quit: message) */
     if (IS_OBSTRUCTED(levl[u.ux][u.uy].typ) && (Upolyd ? u.mh : u.uhp) > 0
         && !silently)
-        You("are encased in rock.");
+        You("estás encerrado en roca.");
     return TRUE;
 }
 
@@ -499,8 +499,8 @@ invault(void)
         buf[0] = '\0';
         trycount = 5;
         do {
-            getlin(Deaf ? "You are required to supply your name. -"
-                        : "\"Hello stranger, who are you?\" -", buf);
+            getlin(Deaf ? "Se requiere que proporciones tu nombre. -"
+                        : "\"Hola extraño, ¿quién eres?\" -", buf);
             (void) mungspaces(buf);
         } while (!buf[0] && --trycount > 0);
 

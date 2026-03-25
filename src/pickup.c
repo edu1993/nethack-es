@@ -727,7 +727,7 @@ pickup(int what) /* should be a long */
             check_here(FALSE);
             if (notake(gy.youmonst.data) && OBJ_AT(u.ux, u.uy)
                 && (autopickup || flags.pickup))
-                You("are physically incapable of picking anything up.");
+                You("eres físicamente incapaz de recoger nada.");
             return 0;
         }
 
@@ -1728,8 +1728,8 @@ lift_object(
            [this was using simpleonames(obj) for shortest description, but
            that's suboptimal for loadstones because it omits user-assigned
            type name which is something of interest for gray stones] */
-        You("are carrying too much stuff to pick up %s %s.",
-            (obj->quan == 1L) ? "another" : "more", xname(obj));
+        You("estás cargando demasiadas cosas para recoger %s %s.",
+            (obj->quan == 1L) ? "otro" : "más", xname(obj));
         return -1;
     }
 
@@ -2436,16 +2436,16 @@ loot_mon(struct monst *mtmp, int *passed_info, boolean *prev_loot)
     if (mtmp && mtmp != u.usteed && (otmp = which_armor(mtmp, W_SADDLE))) {
         if (passed_info)
             *passed_info = 1;
-        Sprintf(qbuf, "Do you want to remove the saddle from %s?",
+        Sprintf(qbuf, "¿Querés quitar la montura de %s?",
                 x_monnam(mtmp, ARTICLE_THE, (char *) 0,
                          SUPPRESS_SADDLE, FALSE));
         if ((c = yn_function(qbuf, ynqchars, 'n', TRUE)) == 'y') {
             if (nolimbs(gy.youmonst.data)) {
-                You_cant("do that without limbs."); /* not body_part(HAND) */
+                You_cant("hacer eso sin extremidades."); /* not body_part(HAND) */
                 return 0;
             }
             if (otmp->cursed) {
-                You("can't.  The saddle seems to be stuck to %s.",
+                You("no podés. La montura parece estar pegada a %s.",
                     x_monnam(mtmp, ARTICLE_THE, (char *) 0,
                              SUPPRESS_SADDLE, FALSE));
                 /* the attempt costs you time */
@@ -2453,9 +2453,9 @@ loot_mon(struct monst *mtmp, int *passed_info, boolean *prev_loot)
             }
             extract_from_minvent(mtmp, otmp, TRUE, FALSE);
             if (flags.verbose)
-                You("take %s off of %s.",
+                You("le quitás %s a %s.",
                     thesimpleoname(otmp), mon_nam(mtmp));
-            otmp = hold_another_object(otmp, "You drop %s!", doname(otmp),
+            otmp = hold_another_object(otmp, "¡Soltás %s!", doname(otmp),
                                        (const char *) 0);
             nhUse(otmp);
             timepassed = rnd(3);
@@ -2565,8 +2565,8 @@ in_container(struct obj *obj)
         pline("That would be an interesting topological exercise.");
         return 0;
     } else if (obj->owornmask & (W_ARMOR | W_ACCESSORY)) {
-        Norep("You cannot %s %s you are wearing.",
-              Icebox ? "refrigerate" : "stash", something);
+        Norep("No puedes %s %s que estás usando.",
+              Icebox ? "refrigerar" : "guardar", something);
         return 0;
     } else if ((obj->otyp == LOADSTONE) && obj->cursed) {
         set_bknown(obj, 1);
@@ -2653,7 +2653,7 @@ in_container(struct obj *obj)
         livelog_printf(LL_ACHIEVE, "just blew up %s bag of holding", uhis());
         /* explicitly mention what item is triggering the explosion */
         urgent_pline(
-              "As you put %s inside, you are blasted by a magical explosion!",
+              "Al poner %s dentro, eres explotado por una explosión mágica!",
                      doname(obj));
         /* did not actually insert obj yet */
         if (was_unpaid)
@@ -3766,7 +3766,7 @@ tipcontainer(struct obj *box) /* or bag */
                                    uhis());
                     /* explicitly mention what item is triggering explosion */
                     urgent_pline(
-                   "As %s %s inside, you are blasted by a magical explosion!",
+                   "Al %s %s dentro, eres explotado por una explosión mágica!",
                                  doname(otmp), otense(otmp, "tumble"));
 
                     /* if putting one bag of holding into another, first

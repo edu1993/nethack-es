@@ -2313,11 +2313,11 @@ drop_boulder_on_player(
     otmp2->owt = weight(otmp2);
     if (!amorphous(gy.youmonst.data) && !Passes_walls
         && !noncorporeal(gy.youmonst.data) && !unsolid(gy.youmonst.data)) {
-        You("are hit by %s!", doname(otmp2));
+        You("eres golpeado por %s!", doname(otmp2));
         dmg = (int) (dmgval(otmp2, &gy.youmonst) * otmp2->quan);
         if (uarmh && helmet_protects) {
             if (hard_helmet(uarmh)) {
-                pline("Fortunately, you are wearing a hard helmet.");
+                pline("Afortunadamente, estás usando un casco duro.");
                 if (dmg > 2)
                     dmg = 2;
             } else if (flags.verbose) {
@@ -2537,7 +2537,7 @@ litroom(
             else if (u.uswallow)
                 pline("It seems even darker in here than before.");
             else
-                You("are surrounded by darkness!");
+                You("estás rodeado de oscuridad!");
         }
     } else { /* on */
         if (blessed_effect) {
@@ -2701,7 +2701,7 @@ do_class_genocide(void)
             if (gonecnt)
                 pline("All such monsters are already nonexistent.");
             else if (immunecnt || class == S_invisible)
-                You("aren't permitted to genocide such monsters.");
+                You("no tienes permiso para genocidar a tales monstruos.");
             else if (wizard && buf[0] == '*') {
                 struct monst *mtmp, *mtmp2;
 
@@ -2802,7 +2802,7 @@ do_class_genocide(void)
                         if (i == PM_HIGH_CLERIC)
                             uniq = FALSE;
 
-                        You("aren't permitted to genocide %s%s.",
+                        You("no tienes permiso para genocidar a %s%s.",
                             (uniq && !named) ? "the " : "",
                             (uniq || named) ? mons[i].pmnames[NEUTRAL] : nam);
                     }
@@ -3027,7 +3027,7 @@ punish(struct obj *sobj)
 
     /* KMH -- Punishment is still okay when you are riding */
     if (!reuse_ball)
-        You("are being punished for your misbehavior!");
+        You("estás siendo castigado por tu mal comportamiento!");
     if (Punished) {
         Your("iron ball gets heavier.");
         uball->owt += WT_IRON_BALL_INCR * (1 + cursed_levy);

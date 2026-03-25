@@ -689,7 +689,7 @@ nhl_get_config(lua_State *L)
 }
 
 /*
-  str = getlin("What do you want to call this dungeon level?");
+  str = getlin("¿Cómo querés llamar a este nivel del calabozo?");
  */
 staticfn int
 nhl_getlin(lua_State *L)

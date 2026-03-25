@@ -31,7 +31,8 @@ dumplogmsg(const char *line)
     unsigned indx = gs.saved_pline_index; /* next slot to use */
     char *oldest = gs.saved_plines[indx]; /* current content of that slot */
 
-    if (!strncmp(line, "Unknown command", 15))
+    if (!strncmp(line, "Unknown command", 15)
+        || !strncmp(line, "Comando desconocido", 19))
         return;
     if (oldest && strlen(oldest) >= strlen(line)) {
         /* this buffer will gradually shrink until the 'else' is needed;

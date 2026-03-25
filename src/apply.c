@@ -476,7 +476,7 @@ staticfn void
 use_whistle(struct obj *obj)
 {
     if (!can_blow(&gy.youmonst)) {
-        You("are incapable of using the whistle.");
+        You("eres incapaz de usar el silbato.");
     } else if (Underwater) {
         You("blow bubbles through %s.", yname(obj));
     } else {
@@ -495,7 +495,7 @@ staticfn void
 use_magic_whistle(struct obj *obj)
 {
     if (!can_blow(&gy.youmonst)) {
-        You("are incapable of using the whistle.");
+        You("eres incapaz de usar el silbato.");
     } else if (obj->cursed && !rn2(2)) {
         You("produce a %shigh-%s.", Underwater ? "very " : "",
             Deaf ? "frequency vibration" : "pitched humming noise");
@@ -1787,7 +1787,7 @@ dorub(void)
     struct obj *obj;
 
     if (nohands(gy.youmonst.data)) {
-        You("aren't able to rub anything without hands.");
+        You("no puedes frotar nada sin manos.");
         return ECMD_OK;
     }
     obj = getobj("rub", rub_ok, GETOBJ_NOFLAGS);
@@ -2042,7 +2042,7 @@ jump(int magic) /* 0=Physical, otherwise skill level */
         You("don't have enough traction to jump.");
         return ECMD_OK;
     } else if (!magic && near_capacity() > UNENCUMBERED) {
-        You("are carrying too much to jump!");
+        You("estás cargando demasiado para saltar!");
         return ECMD_OK;
     } else if (!magic && (u.uhunger <= 100 || ACURR(A_STR) < 6)) {
         You("lack the strength to jump!");
@@ -2883,7 +2883,7 @@ use_trap(struct obj *otmp)
             chance = (rnl(10) > 3);
         else
             chance = (rnl(10) > 5);
-        You("aren't very skilled at reaching from %s.", mon_nam(u.usteed));
+        You("no eres muy hábil alcanzando desde %s.", mon_nam(u.usteed));
         Sprintf(buf, "Continue your attempt to set %s?",
                 the(trapname(ttyp, FALSE)));
         if (y_n(buf) == 'y') {
@@ -3854,7 +3854,7 @@ use_grapple(struct obj *obj)
         if (IS_AIR(levl[cc.x][cc.y].typ) || is_pool(cc.x, cc.y))
             pline_The("hook slices through the %s.", surface(cc.x, cc.y));
         else {
-            You("are yanked toward the %s!", surface(cc.x, cc.y));
+            You("eres jalado hacia %s!", surface(cc.x, cc.y));
             hurtle(sgn(cc.x - u.ux), sgn(cc.y - u.uy), 1, FALSE);
             spoteffects(TRUE);
         }
@@ -4217,7 +4217,7 @@ doapply(void)
     int res = ECMD_TIME;
 
     if (nohands(gy.youmonst.data)) {
-        You("aren't able to use or apply tools in your current form.");
+        You("no puedes usar o aplicar herramientas en tu forma actual.");
         return ECMD_OK;
     }
     if (check_capacity((char *) 0))
@@ -4249,10 +4249,10 @@ doapply(void)
         } else if (!ublindf) {
             Blindf_on(obj);
         } else {
-            You("are already %s.",
-                (ublindf->otyp == TOWEL) ? "covered by a towel"
-                : (ublindf->otyp == BLINDFOLD) ? "wearing a blindfold"
-                  : "wearing lenses");
+            You("ya estás %s.",
+                (ublindf->otyp == TOWEL) ? "cubierto por una toalla"
+                : (ublindf->otyp == BLINDFOLD) ? "usando una venda"
+                  : "usando lentes");
         }
         break;
     case CREAM_PIE:

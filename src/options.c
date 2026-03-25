@@ -461,8 +461,8 @@ ask_do_tutorial(void)
         rc = nh_basename(get_configfile(), TRUE);
         norc = !strcmp(get_configfile(), "/dev/null");
         Snprintf(buf, sizeof buf,
-                 "Put \"OPTIONS=!tutorial\" in %s to skip this query.",
-                 (rc && *rc && !norc) ? rc : "your configuration file");
+                 "Pon \"OPTIONS=!tutorial\" en %s para omitir esta pregunta.",
+                 (rc && *rc && !norc) ? rc : "tu archivo de configuración");
         do {
             win = create_nhwindow(NHW_MENU);
             start_menu(win, MENU_BEHAVE_STANDARD);
@@ -470,18 +470,18 @@ ask_do_tutorial(void)
             any.a_char = 'y';
             add_menu(win, &nul_glyphinfo, &any, any.a_char, 0,
                      ATR_NONE, NO_COLOR,
-                     "Yes, do a tutorial", MENU_ITEMFLAGS_NONE);
+                     "Sí, hacer el tutorial", MENU_ITEMFLAGS_NONE);
             any.a_char = 'n';
             add_menu(win, &nul_glyphinfo, &any, any.a_char, 0,
                      ATR_NONE, NO_COLOR,
-                     "No, just start play", MENU_ITEMFLAGS_NONE);
+                     "No, empezar a jugar", MENU_ITEMFLAGS_NONE);
 
             add_menu_str(win, "");
             add_menu_str(win, buf);
             if (pass++) /* we'll get here after <space> or <return> */
-                add_menu_str(win, "(Please choose 'y' or 'n'.)");
+                add_menu_str(win, "(Por favor elegí 'y' o 'n'.)");
 
-            end_menu(win, "Do you want a tutorial?");
+            end_menu(win, "¿Querés un tutorial?");
 
             n = select_menu(win, PICK_ONE, &sel);
             destroy_nhwindow(win);

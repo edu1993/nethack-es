@@ -623,10 +623,10 @@ disclose(int how, boolean taken)
 
     if (gi.invent && !done_stopprint) {
         if (taken)
-            Sprintf(qbuf, "Do you want to see what you had when you %s?",
-                    (how == QUIT) ? "quit" : "died");
+            Sprintf(qbuf, "¿Querés ver lo que tenías cuando %s?",
+                    (how == QUIT) ? "saliste" : "moriste");
         else
-            Strcpy(qbuf, "Do you want your possessions identified?");
+            Strcpy(qbuf, "¿Querés que se identifiquen tus pertenencias?");
 
         ask = should_query_disclose_option('i', &defquery);
         c = ask ? yn_function(qbuf, ynqchars, defquery, TRUE) : defquery;
@@ -643,7 +643,7 @@ disclose(int how, boolean taken)
 
     if (!done_stopprint) {
         ask = should_query_disclose_option('a', &defquery);
-        c = ask ? yn_function("Do you want to see your attributes?", ynqchars,
+        c = ask ? yn_function("¿Querés ver tus atributos?", ynqchars,
                               defquery, TRUE)
                 : defquery;
         if (c == 'y')
@@ -668,14 +668,14 @@ disclose(int how, boolean taken)
         if (should_query_disclose_option('c', &defquery)) {
             int acnt = count_achievements();
 
-            Sprintf(qbuf, "Do you want to see your conduct%s?",
+            Sprintf(qbuf, "¿Querés ver tu conducta%s?",
                     /* this was distinguishing between one achievement and
                        multiple achievements, but "conduct and achievement"
                        looked strange if multiple conducts got shown (which
                        is usual for an early game death); we could switch
                        to plural vs singular for conducts but the less
                        specific "conduct and achievements" is sufficient */
-                    (acnt > 0) ? " and achievements" : "");
+                    (acnt > 0) ? " y logros" : "");
             c = yn_function(qbuf, ynqchars, defquery, TRUE);
         } else {
             c = defquery;
@@ -688,7 +688,7 @@ disclose(int how, boolean taken)
 
     if (!done_stopprint) {
         ask = should_query_disclose_option('o', &defquery);
-        c = ask ? yn_function("Do you want to see the dungeon overview?",
+        c = ask ? yn_function("¿Querés ver el resumen del calabozo?",
                               ynqchars, defquery, TRUE)
                 : defquery;
         if (c == 'y')
@@ -1026,7 +1026,7 @@ done(int how)
             svk.killer.name[0] = '\0';
         }
         if (wizard) {
-            You("are a very tricky wizard, it seems.");
+            You("eres un mago muy tramposo, parece.");
             svk.killer.format = KILLED_BY_AN; /* reset to 0 */
             return;
         }
@@ -1092,7 +1092,7 @@ done(int how)
         (void) adjattrib(A_CON, -1, TRUE);
         savelife(how);
         if (how == GENOCIDED) {
-            pline("Unfortunately you are still genocided...");
+            pline("Lamentablemente todavía estás genocidado...");
         } else {
             char killbuf[BUFSZ];
             formatkiller(killbuf, BUFSZ, how, FALSE);

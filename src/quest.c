@@ -157,12 +157,12 @@ is_pure(boolean talk)
 
     if (wizard && talk) {
         if (u.ualign.type != original_alignment) {
-            You("are currently %s instead of %s.", align_str(u.ualign.type),
+            You("actualmente eres %s en lugar de %s.", align_str(u.ualign.type),
                 align_str(original_alignment));
         } else if (u.ualignbase[A_CURRENT] != original_alignment) {
             You("have converted.");
         } else if (u.ualign.record < MIN_QUEST_ALIGN) {
-            You("are currently %d and require %d.", u.ualign.record,
+            You("actualmente eres %d y requieres %d.", u.ualign.record,
                 MIN_QUEST_ALIGN);
             if (yn_function("adjust?", (char *) 0, 'y', TRUE) == 'y')
                 u.ualign.record = MIN_QUEST_ALIGN;
@@ -351,7 +351,7 @@ chat_with_leader(struct monst *mtmp)
             Qstat(not_ready) = 1;
             exercise(A_WIS, TRUE);
             expulsion(FALSE);
-        } else { /* You are worthy! */
+        } else { /* ¡Eres digno! */
             qt_pager("assignquest");
             exercise(A_WIS, TRUE);
             Qstat(got_quest) = TRUE;

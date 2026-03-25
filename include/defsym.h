@@ -87,99 +87,99 @@
 #define PCHAR2(idx, ch, sym, tilenm, desc, clr) PCHAR(idx, ch, sym, desc, clr)
 #endif
 
-    PCHAR2( 0, ' ',  S_stone,  "dark part of a room", "stone",  NO_COLOR)
-    PCHAR2( 1, '|',  S_vwall,  "vertical wall", "wall",  CLR_GRAY)
-    PCHAR2( 2, '-',  S_hwall,  "horizontal wall", "wall",  CLR_GRAY)
-    PCHAR2( 3, '-',  S_tlcorn, "top left corner wall", "wall",  CLR_GRAY)
-    PCHAR2( 4, '-',  S_trcorn, "top right corner wall", "wall",  CLR_GRAY)
-    PCHAR2( 5, '-',  S_blcorn, "bottom left corner wall", "wall", CLR_GRAY)
-    PCHAR2( 6, '-',  S_brcorn, "bottom right corner wall", "wall", CLR_GRAY)
-    PCHAR2( 7, '-',  S_crwall, "cross wall", "wall", CLR_GRAY)
-    PCHAR2( 8, '-',  S_tuwall, "tuwall", "wall", CLR_GRAY)
-    PCHAR2( 9, '-',  S_tdwall, "tdwall", "wall", CLR_GRAY)
-    PCHAR2(10, '|',  S_tlwall, "tlwall", "wall", CLR_GRAY)
-    PCHAR2(11, '|',  S_trwall, "trwall", "wall", CLR_GRAY)
+    PCHAR2( 0, ' ',  S_stone,  "parte oscura de una habitación", "piedra",  NO_COLOR)
+    PCHAR2( 1, '|',  S_vwall,  "muro vertical", "muro",  CLR_GRAY)
+    PCHAR2( 2, '-',  S_hwall,  "muro horizontal", "muro",  CLR_GRAY)
+    PCHAR2( 3, '-',  S_tlcorn, "muro de esquina superior izquierda", "muro",  CLR_GRAY)
+    PCHAR2( 4, '-',  S_trcorn, "muro de esquina superior derecha", "muro",  CLR_GRAY)
+    PCHAR2( 5, '-',  S_blcorn, "muro de esquina inferior izquierda", "muro",  CLR_GRAY)
+    PCHAR2( 6, '-',  S_brcorn, "muro de esquina inferior derecha", "muro",  CLR_GRAY)
+    PCHAR2( 7, '-',  S_crwall, "muro cruzado", "muro",  CLR_GRAY)
+    PCHAR2( 8, '-',  S_tuwall, "muro superior", "muro",  CLR_GRAY)
+    PCHAR2( 9, '-',  S_tdwall, "muro inferior", "muro",  CLR_GRAY)
+    PCHAR2(10, '|',  S_tlwall, "muro superior izquierdo", "muro",  CLR_GRAY)
+    PCHAR2(11, '|',  S_trwall, "muro superior derecho", "muro",  CLR_GRAY)
     /* start cmap A                                                      */
-    PCHAR2(12, '.',  S_ndoor,  "no door", "doorway", CLR_GRAY)
-    PCHAR2(13, '-',  S_vodoor, "vertical open door", "open door", CLR_BROWN)
-    PCHAR2(14, '|',  S_hodoor, "horizontal open door", "open door", CLR_BROWN)
-    PCHAR2(15, '+',  S_vcdoor, "vertical closed door",
-                               "closed door", CLR_BROWN)
-    PCHAR2(16, '+',  S_hcdoor, "horizontal closed door",
-                               "closed door", CLR_BROWN)
-    PCHAR( 17, '#',  S_bars,   "iron bars", HI_METAL)
-    PCHAR( 18, '#',  S_tree,   "tree", CLR_GREEN)
-    PCHAR( 19, '.',  S_room,   "floor of a room", CLR_GRAY)
-    PCHAR( 20, '.',  S_darkroom, "dark part of a room", CLR_BLACK)
-    PCHAR2(21, '`',  S_engroom, "engraving in a room", "engraving",
+    PCHAR2(12, '.',  S_ndoor,  "sin puerta", "entrada", CLR_GRAY)
+    PCHAR2(13, '-',  S_vodoor, "puerta abierta vertical", "puerta abierta", CLR_BROWN)
+    PCHAR2(14, '|',  S_hodoor, "puerta abierta horizontal", "puerta abierta", CLR_BROWN)
+    PCHAR2(15, '+',  S_vcdoor, "puerta cerrada vertical",
+                               "puerta cerrada", CLR_BROWN)
+    PCHAR2(16, '+',  S_hcdoor, "puerta cerrada horizontal",
+                               "puerta cerrada", CLR_BROWN)
+    PCHAR( 17, '#',  S_bars,   "barrotes de hierro", HI_METAL)
+    PCHAR( 18, '#',  S_tree,   "árbol", CLR_GREEN)
+    PCHAR( 19, '.',  S_room,   "piso de una habitación", CLR_GRAY)
+    PCHAR( 20, '.',  S_darkroom, "parte oscura de una habitación", CLR_BLACK)
+    PCHAR2(21, '`',  S_engroom, "grabado en una habitación", "grabado",
                                 CLR_BRIGHT_BLUE)
-    PCHAR2(22, '#',  S_corr,   "dark corridor", "corridor", CLR_GRAY)
-    PCHAR( 23, '#',  S_litcorr, "lit corridor", CLR_GRAY)
-    PCHAR2(24, '#',  S_engrcorr, "engraving in a corridor", "engraving",
+    PCHAR2(22, '#',  S_corr,   "pasillo oscuro", "pasillo", CLR_GRAY)
+    PCHAR( 23, '#',  S_litcorr, "pasillo iluminado", CLR_GRAY)
+    PCHAR2(24, '#',  S_engrcorr, "grabado en un pasillo", "grabado",
                                  CLR_BRIGHT_BLUE)
-    PCHAR2(25, '<',  S_upstair, "up stairs", "staircase up", CLR_GRAY)
-    PCHAR2(26, '>',  S_dnstair, "down stairs", "staircase down", CLR_GRAY)
-    PCHAR2(27, '<',  S_upladder, "up ladder", "ladder up", CLR_BROWN)
-    PCHAR2(28, '>',  S_dnladder, "down ladder", "ladder down", CLR_BROWN)
-    PCHAR( 29, '<',  S_brupstair, "branch staircase up", CLR_YELLOW)
-    PCHAR( 30, '>',  S_brdnstair, "branch staircase down", CLR_YELLOW)
-    PCHAR( 31, '<',  S_brupladder, "branch ladder up", CLR_YELLOW)
-    PCHAR( 32, '>',  S_brdnladder, "branch ladder down", CLR_YELLOW)
+    PCHAR2(25, '<',  S_upstair, "escaleras arriba", "escalera arriba", CLR_GRAY)
+    PCHAR2(26, '>',  S_dnstair, "escaleras abajo", "escalera abajo", CLR_GRAY)
+    PCHAR2(27, '<',  S_upladder, "escalera arriba", "escalera arriba", CLR_BROWN)
+    PCHAR2(28, '>',  S_dnladder, "escalera abajo", "escalera abajo", CLR_BROWN)
+    PCHAR( 29, '<',  S_brupstair, "escalera de rama arriba", CLR_YELLOW)
+    PCHAR( 30, '>',  S_brdnstair, "escalera de rama abajo", CLR_YELLOW)
+    PCHAR( 31, '<',  S_brupladder, "escalera de rama arriba", CLR_YELLOW)
+    PCHAR( 32, '>',  S_brdnladder, "escalera de rama abajo", CLR_YELLOW)
     /* end cmap A */
     PCHAR( 33, '_',  S_altar,  "altar", CLR_GRAY)
     /* start cmap B */
-    PCHAR( 34, '|',  S_grave,  "grave", CLR_WHITE)
-    PCHAR2(35, '\\', S_throne, "throne", "opulent throne", HI_GOLD)
-    PCHAR( 36, '{',  S_sink,   "sink", CLR_WHITE)
-    PCHAR( 37, '{',  S_fountain, "fountain", CLR_BRIGHT_BLUE)
+    PCHAR( 34, '|',  S_grave,  "tumba", CLR_WHITE)
+    PCHAR2(35, '\\', S_throne, "trono", "trono opulento", HI_GOLD)
+    PCHAR( 36, '{',  S_sink,   "fregadero", CLR_WHITE)
+    PCHAR( 37, '{',  S_fountain, "fuente", CLR_BRIGHT_BLUE)
     /* the S_pool symbol is used for both POOL terrain and MOAT terrain */
-    PCHAR2(38, '}',  S_pool,   "pool", "water", CLR_BLUE)
-    PCHAR( 39, '.',  S_ice,    "ice", CLR_CYAN)
-    PCHAR( 40, '}',  S_lava,   "molten lava", CLR_RED)
-    PCHAR( 41, '}',  S_lavawall,  "wall of lava", CLR_ORANGE)
-    PCHAR2(42, '.',  S_vodbridge, "vertical open drawbridge",
-                                  "lowered drawbridge", CLR_BROWN)
-    PCHAR2(43, '.',  S_hodbridge, "horizontal open drawbridge",
-                                  "lowered drawbridge", CLR_BROWN)
-    PCHAR2(44, '#',  S_vcdbridge, "vertical closed drawbridge",
-                                  "raised drawbridge", CLR_BROWN)
-    PCHAR2(45, '#',  S_hcdbridge, "horizontal closed drawbridge",
-                                  "raised drawbridge", CLR_BROWN)
-    PCHAR( 46, ' ',  S_air,    "air", CLR_CYAN)
-    PCHAR( 47, '#',  S_cloud,  "cloud", CLR_GRAY)
+    PCHAR2(38, '}',  S_pool,   "piscina", "agua", CLR_BLUE)
+    PCHAR( 39, '.',  S_ice,    "hielo", CLR_CYAN)
+    PCHAR( 40, '}',  S_lava,   "lava derretida", CLR_RED)
+    PCHAR( 41, '}',  S_lavawall,  "muro de lava", CLR_ORANGE)
+    PCHAR2(42, '.',  S_vodbridge, "puente levadizo abierto vertical",
+                                  "puente levadizo bajado", CLR_BROWN)
+    PCHAR2(43, '.',  S_hodbridge, "puente levadizo abierto horizontal",
+                                  "puente levadizo bajado", CLR_BROWN)
+    PCHAR2(44, '#',  S_vcdbridge, "puente levadizo cerrado vertical",
+                                  "puente levadizo levantado", CLR_BROWN)
+    PCHAR2(45, '#',  S_hcdbridge, "puente levadizo cerrado horizontal",
+                                  "puente levadizo levantado", CLR_BROWN)
+    PCHAR( 46, ' ',  S_air,    "aire", CLR_CYAN)
+    PCHAR( 47, '#',  S_cloud,  "nube", CLR_GRAY)
     /* the S_water symbol is used for WATER terrain: wall of water in the
        dungeon and Plane of Water in the endgame */
-    PCHAR( 48, '}',  S_water,  "water", CLR_BRIGHT_BLUE)
+    PCHAR( 48, '}',  S_water,  "agua", CLR_BRIGHT_BLUE)
     /* end dungeon characters                                          */
     /*                                                                 */
     /* begin traps                                                     */
     /*                                                                 */
-    PCHAR( 49, '^',  S_arrow_trap, "arrow trap", HI_METAL)
-    PCHAR( 50, '^',  S_dart_trap, "dart trap", HI_METAL)
-    PCHAR( 51, '^',  S_falling_rock_trap, "falling rock trap", CLR_GRAY)
-    PCHAR( 52, '^',  S_squeaky_board, "squeaky board", CLR_BROWN)
-    PCHAR( 53, '^',  S_bear_trap, "bear trap", HI_METAL)
-    PCHAR( 54, '^',  S_land_mine, "land mine", CLR_RED)
-    PCHAR( 55, '^',  S_rolling_boulder_trap, "rolling boulder trap", CLR_GRAY)
-    PCHAR( 56, '^',  S_sleeping_gas_trap, "sleeping gas trap", HI_ZAP)
-    PCHAR( 57, '^',  S_rust_trap, "rust trap", CLR_BLUE)
-    PCHAR( 58, '^',  S_fire_trap, "fire trap", CLR_ORANGE)
-    PCHAR( 59, '^',  S_pit, "pit", CLR_BLACK)
-    PCHAR( 60, '^',  S_spiked_pit, "spiked pit", CLR_BLACK)
-    PCHAR( 61, '^',  S_hole, "hole", CLR_BROWN)
-    PCHAR( 62, '^',  S_trap_door, "trap door", CLR_BROWN)
-    PCHAR( 63, '^',  S_teleportation_trap, "teleportation trap", CLR_MAGENTA)
-    PCHAR( 64, '^',  S_level_teleporter, "level teleporter", CLR_MAGENTA)
-    PCHAR( 65, '^',  S_magic_portal, "magic portal", CLR_BRIGHT_MAGENTA)
-    PCHAR( 66, '"',  S_web, "web", CLR_GRAY)
-    PCHAR( 67, '^',  S_statue_trap, "statue trap", CLR_GRAY)
-    PCHAR( 68, '^',  S_magic_trap, "magic trap", HI_ZAP)
-    PCHAR2(69, '^',  S_anti_magic_trap, "anti magic trap", "anti-magic field",
+    PCHAR( 49, '^',  S_arrow_trap, "trampa de flecha", HI_METAL)
+    PCHAR( 50, '^',  S_dart_trap, "trampa de dardo", HI_METAL)
+    PCHAR( 51, '^',  S_falling_rock_trap, "trampa de roca que cae", CLR_GRAY)
+    PCHAR( 52, '^',  S_squeaky_board, "tabla chirriante", CLR_BROWN)
+    PCHAR( 53, '^',  S_bear_trap, "trampa de oso", HI_METAL)
+    PCHAR( 54, '^',  S_land_mine, "mina terrestre", CLR_RED)
+    PCHAR( 55, '^',  S_rolling_boulder_trap, "trampa de roca rodante", CLR_GRAY)
+    PCHAR( 56, '^',  S_sleeping_gas_trap, "trampa de gas dormido", HI_ZAP)
+    PCHAR( 57, '^',  S_rust_trap, "trampa de óxido", CLR_BLUE)
+    PCHAR( 58, '^',  S_fire_trap, "trampa de fuego", CLR_ORANGE)
+    PCHAR( 59, '^',  S_pit, "foso", CLR_BLACK)
+    PCHAR( 60, '^',  S_spiked_pit, "foso con pinchos", CLR_BLACK)
+    PCHAR( 61, '^',  S_hole, "agujero", CLR_BROWN)
+    PCHAR( 62, '^',  S_trap_door, "puerta trampa", CLR_BROWN)
+    PCHAR( 63, '^',  S_teleportation_trap, "trampa de teletransportación", CLR_MAGENTA)
+    PCHAR( 64, '^',  S_level_teleporter, "teletransportador de nivel", CLR_MAGENTA)
+    PCHAR( 65, '^',  S_magic_portal, "portal mágico", CLR_BRIGHT_MAGENTA)
+    PCHAR( 66, '"',  S_web, "telaraña", CLR_GRAY)
+    PCHAR( 67, '^',  S_statue_trap, "trampa de estatua", CLR_GRAY)
+    PCHAR( 68, '^',  S_magic_trap, "trampa mágica", HI_ZAP)
+    PCHAR2(69, '^',  S_anti_magic_trap, "trampa anti mágica", "campo anti-mágico",
                                         HI_ZAP)
-    PCHAR( 70, '^',  S_polymorph_trap, "polymorph trap", CLR_BRIGHT_GREEN)
-    PCHAR( 71, '~',  S_vibrating_square, "vibrating square", CLR_MAGENTA)
-    PCHAR( 72, '^',  S_trapped_door, "trapped door", CLR_ORANGE)
-    PCHAR( 73, '^',  S_trapped_chest, "trapped chest", CLR_ORANGE)
+    PCHAR( 70, '^',  S_polymorph_trap, "trampa de polimorfia", CLR_BRIGHT_GREEN)
+    PCHAR( 71, '~',  S_vibrating_square, "cuadrado vibrante", CLR_MAGENTA)
+    PCHAR( 72, '^',  S_trapped_door, "puerta atrapada", CLR_ORANGE)
+    PCHAR( 73, '^',  S_trapped_chest, "cofre atrapado", CLR_ORANGE)
     /* end traps                                                       */
     /* end cmap B */
     /*                                                                   */
@@ -187,24 +187,24 @@
     /*                                                                   */
     /* zap colors are changed by reset_glyphmap() to match type of beam */
     /*                                                                   */
-    PCHAR2(74, '|',  S_vbeam, "vertical beam", "", CLR_GRAY)
-    PCHAR2(75, '-',  S_hbeam, "horizontal beam", "", CLR_GRAY)
-    PCHAR2(76, '\\', S_lslant, "left slant beam", "", CLR_GRAY)
-    PCHAR2(77, '/',  S_rslant, "right slant beam", "", CLR_GRAY)
+    PCHAR2(74, '|',  S_vbeam, "rayo vertical", "", CLR_GRAY)
+    PCHAR2(75, '-',  S_hbeam, "rayo horizontal", "", CLR_GRAY)
+    PCHAR2(76, '\\', S_lslant, "rayo inclinado izquierdo", "", CLR_GRAY)
+    PCHAR2(77, '/',  S_rslant, "rayo inclinado derecho", "", CLR_GRAY)
     /* start cmap C */
-    PCHAR2(78, '*',  S_digbeam, "dig beam", "", CLR_WHITE)
-    PCHAR2(79, '!',  S_flashbeam, "flash beam", "", CLR_WHITE)
-    PCHAR2(80, ')',  S_boomleft, "boom left", "", HI_WOOD)
-    PCHAR2(81, '(',  S_boomright, "boom right", "", HI_WOOD)
+    PCHAR2(78, '*',  S_digbeam, "rayo cavar", "", CLR_WHITE)
+    PCHAR2(79, '!',  S_flashbeam, "rayo destello", "", CLR_WHITE)
+    PCHAR2(80, ')',  S_boomleft, "explosión izquierda", "", HI_WOOD)
+    PCHAR2(81, '(',  S_boomright, "explosión derecha", "", HI_WOOD)
     /* 4 magic shield symbols                                          */
-    PCHAR2(82, '0',  S_ss1, "shield1", "", HI_ZAP)
-    PCHAR2(83, '#',  S_ss2, "shield2", "", HI_ZAP)
-    PCHAR2(84, '@',  S_ss3, "shield3", "", HI_ZAP)
-    PCHAR2(85, '*',  S_ss4, "shield4", "", HI_ZAP)
-    PCHAR( 86, '#',  S_poisoncloud, "poison cloud", CLR_BRIGHT_GREEN)
+    PCHAR2(82, '0',  S_ss1, "escudo1", "", HI_ZAP)
+    PCHAR2(83, '#',  S_ss2, "escudo2", "", HI_ZAP)
+    PCHAR2(84, '@',  S_ss3, "escudo3", "", HI_ZAP)
+    PCHAR2(85, '*',  S_ss4, "escudo4", "", HI_ZAP)
+    PCHAR( 86, '#',  S_poisoncloud, "nube de veneno", CLR_BRIGHT_GREEN)
     /* for a time S_goodpos was a question mark, but dollar sign is the
        default keystroke for getpos() to toggle goodpos glyphs on or off */
-    PCHAR( 87, '$',  S_goodpos, "valid position", HI_ZAP)
+    PCHAR( 87, '$',  S_goodpos, "posición válida", HI_ZAP)
     /* end cmap C */
     /*                                                             */
     /* The 8 swallow symbols.  Do NOT separate.                    */
@@ -463,25 +463,25 @@
     OBJCLASS(idx, ch, basename, sym, name, explain)
 #endif
 
-    OBJCLASS( 1,  ']', ILLOBJ, S_strange_obj, "illegal objects",
-                                              "strange object")
-    OBJCLASS( 2,  ')', WEAPON, S_weapon, "weapons", "weapon")
-    OBJCLASS( 3,  '[', ARMOR,  S_armor, "armor", "suit or piece of armor")
-    OBJCLASS( 4,  '=', RING,   S_ring, "rings", "ring")
-    OBJCLASS( 5,  '"', AMULET, S_amulet, "amulets", "amulet")
-    OBJCLASS( 6,  '(', TOOL,   S_tool, "tools",
-                                       "useful item (pick-axe, key, lamp...)")
-    OBJCLASS( 7,  '%', FOOD,   S_food, "food", "piece of food")
-    OBJCLASS( 8,  '!', POTION, S_potion, "potions", "potion")
-    OBJCLASS( 9,  '?', SCROLL, S_scroll, "scrolls", "scroll")
-    OBJCLASS(10,  '+', SPBOOK, S_book, "spellbooks", "spellbook")
-    OBJCLASS(11,  '/', WAND,   S_wand, "wands", "wand")
-    OBJCLASS2(12, '$', COIN,   GOLD_SYM, S_coin, "coins", "pile of coins")
-    OBJCLASS(13,  '*', GEM,    S_gem, "rocks", "gem or rock")
-    OBJCLASS(14,  '`', ROCK,   S_rock, "large stones", "boulder or statue")
-    OBJCLASS(15,  '0', BALL,   S_ball, "iron balls", "iron ball")
-    OBJCLASS(16,  '_', CHAIN,  S_chain, "chains", "iron chain")
-    OBJCLASS(17,  '.', VENOM,  S_venom, "venoms", "splash of venom")
+    OBJCLASS( 1,  ']', ILLOBJ, S_strange_obj, "objetos ilegales",
+                                              "objeto extraño")
+    OBJCLASS( 2,  ')', WEAPON, S_weapon, "armas", "arma")
+    OBJCLASS( 3,  '[', ARMOR,  S_armor, "armaduras", "traje o pieza de armadura")
+    OBJCLASS( 4,  '=', RING,   S_ring, "anillos", "anillo")
+    OBJCLASS( 5,  '"', AMULET, S_amulet, "amuletos", "amuleto")
+    OBJCLASS( 6,  '(', TOOL,   S_tool, "herramientas",
+                                       "objeto útil (pico, llave, lámpara...)")
+    OBJCLASS( 7,  '%', FOOD,   S_food, "comida", "pieza de comida")
+    OBJCLASS( 8,  '!', POTION, S_potion, "pociones", "poción")
+    OBJCLASS( 9,  '?', SCROLL, S_scroll, "pergaminos", "pergamino")
+    OBJCLASS(10,  '+', SPBOOK, S_book, "libros de hechizos", "libro de hechizos")
+    OBJCLASS(11,  '/', WAND,   S_wand, "varitas", "varita")
+    OBJCLASS2(12, '$', COIN,   GOLD_SYM, S_coin, "monedas", "pila de monedas")
+    OBJCLASS(13,  '*', GEM,    S_gem, "rocas", "gema o roca")
+    OBJCLASS(14,  '`', ROCK,   S_rock, "piedras grandes", "roca o estatua")
+    OBJCLASS(15,  '0', BALL,   S_ball, "bolas de hierro", "bola de hierro")
+    OBJCLASS(16,  '_', CHAIN,  S_chain, "cadenas", "cadena de hierro")
+    OBJCLASS(17,  '.', VENOM,  S_venom, "venenos", "salpicadura de veneno")
 
 #undef OBJCLASS
 #undef OBJCLASS2

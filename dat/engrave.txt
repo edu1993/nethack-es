@@ -5,89 +5,89 @@
 #
 Elbereth
 # trap engravings
-Vlad was here
+Vlad estuvo aquí
 ad aerarium
 
 # take-offs and other famous engravings
-Owlbreath
+Aliento de Búho
 Galadriel
-Kilroy was here
-Frodo lives
+Kilroy estuvo aquí
+Frodo vive
 
 # Journey to the Center of the Earth
 A.S. ->
 <- A.S.
 # Adventure
-You won't get it up the steps
+No lo subirás por los escalones
 # Inferno
 Lasciate ogni speranza o voi ch'entrate.
 # Prisoner
-Well Come
+Bienvenido
 # God's Final Message to His Creation (from "So Long, and Thanks for All
 # the Fish" by Douglas Adams):
-We apologize for the inconvenience.
+Nos disculpamos por la molestia.
 # Thriller
-See you next Wednesday
+Nos vemos el próximo miércoles
 # Smokey Stover
 notary sojak
 
-For a good time call 8?7-5309
+Para un buen tiempo llama al 8?7-5309
 # Various zoos around the world
-Please don't feed the animals.
+Por favor no alimente a los animales.
 # A palindrome
-Madam, in Eden, I'm Adam.
+Señora, en Edén, soy Adán.
 # Siskel & Ebert
-Two thumbs up!
+¡Dos pulgares arriba!
 # The First C Program
-Hello, World!
+¡Hola, Mundo!
 ^?MAIL
 # AOL
-You've got mail!
+¡Tienes correo!
 ^.
 # Clueless
-As if!
+¡Como si!
 # 200x incarnation of Dr.Who
-BAD WOLF
+LOBO MALO
 
 # Gang tag
-Arooo!  Werewolves of Yendor!
+¡Arooo! ¡Hombres lobo de Yendor!
 
 # Strategy and pun
-Dig for Victory here
+Cava para la Victoria aquí
 
 # Pompeii
-Gaius Julius Primigenius was here.  Why are you late?
+Gaius Julius Primigenius estuvo aquí. ¿Por qué llegas tarde?
 
 # Helpful guiding
-Don't go this way
-Go left --->
-<--- Go right
-X marks the spot
-X <--- You are here.
-Here be dragons
-Save now, and do your homework!
-There was a hole here.  It's gone now.
-The Vibrating Square
-This is a pit!
-This is not the dungeon you are looking for.
-Watch out, there's a gnome with a wand of death behind that door!
+No vayas por aquí
+Ve a la izquierda --->
+<--- Ve a la derecha
+X marca el lugar
+X <--- Estás aquí.
+Aquí hay dragones
+Guarda ahora, ¡y haz tu tarea!
+Había un agujero aquí. Ya se fue.
+El Cuadrado Vibrante
+¡Esto es un pozo!
+Esta no es la mazmorra que buscas.
+¡Cuidado, hay un gnomo con una varita de la muerte detrás de esa puerta!
 
 # Misc fun
-This square deliberately left blank.
+Este cuadrado deliberadamente dejado en blanco.
 
 # Viking graffiti
-Haermund Hardaxe carved these runes
+Haermund Hardaxe talló estas runas
 
 # Advertising
-Need a light?  Come visit the Minetown branch of Izchak's Lighting Store!
-Snakes on the Astral Plane - Soon in a dungeon near you
-You are the one millionth visitor to this place!  Please wait 200 turns for your wand of wishing.
+¿Necesitas luz? ¡Visita la sucursal de Minetown de la Tienda de Iluminación de Izchak!
+Serpientes en el Plano Astral - Pronto en una mazmorra cerca de ti
+¡Eres el visitante millonésimo de este lugar! Por favor espera 200 turnos para tu varita de deseos.
 
 # DnD
-Warning, Exploding runes!
+Advertencia, ¡Runas explosivas!
 
 # "Whispers Underground" Ben Aaronovitch
-If you can read these words then you are not only a nerd but probably dead.
+Si puedes leer estas palabras entonces no solo eres un nerd sino probablemente muerto.
 
 # Portal
-The cake is a lie
+El pastel es una mentira

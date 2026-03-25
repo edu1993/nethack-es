@@ -243,11 +243,11 @@ do_mgivenname(void)
                 || M_AP_TYPE(mtmp) == M_AP_OBJECT
                 || (mtmp->minvis && !See_invisible))))) {
 
-        pline("I see no monster there.");
+        pline("No veo ningún monstruo ahí.");
         return;
     }
     /* special case similar to the one in lookat() */
-    Sprintf(qbuf, "What do you want to call %s?",
+    Sprintf(qbuf, "¿Cómo querés llamar a %s?",
             distant_monnam(mtmp, ARTICLE_THE, monnambuf));
     /* use getlin() to get a name string from the player */
     if (!name_from_player(buf, qbuf,
@@ -299,8 +299,8 @@ do_oname(struct obj *obj)
         return;
     }
 
-    Sprintf(qbuf, "What do you want to name %s ",
-            is_plural(obj) ? "these" : "this");
+    Sprintf(qbuf, "¿Qué querés nombrar: %s ",
+            is_plural(obj) ? "estos" : "esto");
     (void) safe_qbuf(qbuf, qbuf, "?", obj, xname, simpleonames, "item");
     /* use getlin() to get a name string from the player */
     if (!name_from_player(buf, qbuf, safe_oname(obj)))
@@ -547,7 +547,7 @@ docallcmd(void)
     add_menu(win, &nul_glyphinfo, &any, abc ? 0 : any.a_char, 'l',
              ATR_NONE, clr, "record an annotation for the current level",
              MENU_ITEMFLAGS_NONE);
-    end_menu(win, "What do you want to name?");
+    end_menu(win, "¿Qué querés nombrar?");
     if (select_menu(win, PICK_ONE, &pick_list) > 0) {
         ch = pick_list[0].item.a_char;
         free((genericptr_t) pick_list);

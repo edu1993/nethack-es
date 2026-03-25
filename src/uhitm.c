@@ -2887,10 +2887,10 @@ mhitm_ad_tlpt(
 
         hitmsg(magr, mattk);
         if (mhitm_mgc_atk_negated(magr, mdef, FALSE)) {
-            You("are not affected.");
+            You("no estás afectado.");
         } else {
             if (flags.verbose)
-                Your("position suddenly seems %suncertain!",
+                Your("posición de repente parece %sincierta!",
                      (Teleport_control && !Stunned && !unconscious()) ? ""
                      : "very ");
             tele();
@@ -3400,7 +3400,7 @@ mhitm_ad_wrap(
                             an(pmname(magr->data, Mgender(magr))));
                     done(DROWNING);
                 } else if (mattk->aatyp == AT_HUGS) {
-                    You("are being crushed.");
+                    You("estás siendo aplastado.");
                 }
             } else {
                 mhm->damage = 0;
@@ -3449,9 +3449,9 @@ mhitm_ad_plys(
                 You("momentarily stiffen.");
             } else {
                 if (Blind)
-                    You("are frozen!");
+                    You("estás congelado!");
                 else
-                    You("are frozen by %s!", mon_nam(magr));
+                    You("estás congelado por %s!", mon_nam(magr));
                 gn.nomovemsg = You_can_move_again;
                 nomul(-rnd(10));
                 /* set gm.multi_reason;
@@ -3501,9 +3501,9 @@ mhitm_ad_slee(
             monstunseesu(M_SEEN_SLEEP);
             fall_asleep(-rnd(10), TRUE);
             if (Blind)
-                You("are put to sleep!");
+                You("te quedas dormido!");
             else
-                You("are put to sleep by %s!", mon_nam(magr));
+                You("te quedas dormido por %s!", mon_nam(magr));
         }
     } else {
         /* mhitm */
@@ -3563,10 +3563,10 @@ mhitm_ad_slim(
             mhm->damage = 0;
         } else if (Unchanging || noncorporeal(pd)
                    || pd == &mons[PM_GREEN_SLIME]) {
-            You("are unaffected.");
+            You("no estás afectado.");
             mhm->damage = 0;
         } else if (!Slimed) {
-            You("don't feel very well.");
+            You("no te sientes muy bien.");
             make_slimed(10L, (char *) 0);
             delayed_killer(SLIMED, KILLED_BY_AN,
                            pmname(magr->data, Mgender(magr)));
@@ -3704,9 +3704,9 @@ mhitm_ad_conf(
         if (!magr->mcan && !rn2(4) && !magr->mspec_used) {
             magr->mspec_used = magr->mspec_used + (mhm->damage + rn2(6));
             if (Confusion)
-                You("are getting even more confused.");
+                You("estás cada vez más confundido.");
             else
-                You("are getting confused.");
+                You("estás confundido.");
             make_confused(HConfusion + mhm->damage, FALSE);
         }
         mhm->damage = 0;
@@ -3754,7 +3754,7 @@ mhitm_ad_poly(
         if (Maybe_Half_Phys(mhm->damage) < (Upolyd ? u.mh : u.uhp)) {
             if (negated) {
                 if (magr->mcan)
-                    You("aren't transformed.");
+                    You("no estás transformado.");
             } else {
                 mhm->damage = mon_poly(magr, &gy.youmonst, mhm->damage);
                 mhm->hitflags |= M_ATTK_HIT;
@@ -4032,8 +4032,8 @@ mhitm_ad_phys(
                 }
             } else if (u.ustuck == magr) {
                 exercise(A_STR, FALSE);
-                You("are being %s.",
-                    (pa == &mons[PM_ROPE_GOLEM]) ? "choked" : "crushed");
+                You("estás siendo %s.",
+                    (pa == &mons[PM_ROPE_GOLEM]) ? "ahogado" : "aplastado");
             }
         } else { /* hand to hand weapon */
             struct obj *otmp = MON_WEP(magr);
@@ -5906,10 +5906,10 @@ passive(
     case AD_ACID:
         if (mhitb && rn2(2)) {
             if (Blind || !flags.verbose)
-                You("are splashed!");
+                You("estás salpicado!");
             else
-                You("are splashed by %s %s!", s_suffix(mon_nam(mon)),
-                    hliquid("acid"));
+                You("estás salpicado por %s %s!", s_suffix(mon_nam(mon)),
+                    hliquid("ácido"));
 
             if (!Acid_resistance) {
                 mdamageu(mon, tmp);
@@ -5984,7 +5984,7 @@ passive(
             monstseesu(M_SEEN_MAGR);
             pline("A hail of magic missiles narrowly misses you!");
         } else {
-            You("are hit by magic missiles appearing from thin air!");
+            You("eres golpeado por misiles mágicos apareciendo de la nada!");
             mdamageu(mon, tmp);
             monstunseesu(M_SEEN_MAGR);
         }
@@ -6038,7 +6038,7 @@ passive(
                         You("momentarily stiffen under %s gaze!",
                             s_suffix(mon_nam(mon)));
                     } else {
-                        You("are frozen by %s gaze!", s_suffix(mon_nam(mon)));
+                        You("estás congelado por la mirada de %s!", s_suffix(mon_nam(mon)));
                         nomul((ACURR(A_WIS) > 12 || rn2(4)) ? -tmp : -127);
                         /* set gm.multi_reason;
                            3.6.x used "frozen by a monster's gaze" */
@@ -6054,7 +6054,7 @@ passive(
             } else if (Free_action) {
                 You("momentarily stiffen.");
             } else { /* gelatinous cube */
-                You("are frozen by %s!", mon_nam(mon));
+                You("estás congelado por %s!", mon_nam(mon));
                 gn.nomovemsg = You_can_move_again;
                 nomul(-tmp);
                 /* set gm.multi_reason;
@@ -6073,7 +6073,7 @@ passive(
                     break;
                 }
                 monstunseesu(M_SEEN_COLD);
-                You("are suddenly very cold!");
+                You("de repente tienes mucho frío!");
                 mdamageu(mon, tmp);
                 /* monster gets stronger with your heat! */
                 healmon(mon, (tmp + rn2(2)) / 2, (tmp + 1) / 2);
@@ -6096,7 +6096,7 @@ passive(
                     break;
                 }
                 monstunseesu(M_SEEN_FIRE);
-                You("are suddenly very hot!");
+                You("de repente tienes mucho calor!");
                 mdamageu(mon, tmp); /* fire damage */
             }
             break;
@@ -6109,7 +6109,7 @@ passive(
                 break;
             }
             monstunseesu(M_SEEN_ELEC);
-            You("are jolted with electricity!");
+            You("eres sacudido por electricidad!");
             mdamageu(mon, tmp);
             break;
         default:

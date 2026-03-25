@@ -528,7 +528,7 @@ dodrink(void)
     struct obj *otmp;
 
     if (Strangled) {
-        pline("If you can't breathe air, how can you drink liquid?");
+        pline("Si no podés respirar aire, ¿cómo podés beber líquido?");
         return ECMD_OK;
     }
 
@@ -542,7 +542,7 @@ dodrink(void)
         if (IS_FOUNTAIN(levl[u.ux][u.uy].typ)
             /* not as low as floor level but similar restrictions apply */
             && can_reach_floor(FALSE)) {
-            if (y_n("Drink from the fountain?") == 'y') {
+            if (y_n("¿Beber de la fuente?") == 'y') {
                 drinkfountain();
                 return ECMD_TIME;
             }
@@ -552,7 +552,7 @@ dodrink(void)
         if (IS_SINK(levl[u.ux][u.uy].typ)
             /* not as low as floor level but similar restrictions apply */
             && can_reach_floor(FALSE)) {
-            if (y_n("Drink from the sink?") == 'y') {
+            if (y_n("¿Beber del fregadero?") == 'y') {
                 drinksink();
                 return ECMD_TIME;
             }
@@ -560,15 +560,15 @@ dodrink(void)
         }
         /* Or are you surrounded by water? */
         if (Underwater && !u.uswallow) {
-            if (y_n("Drink the water around you?") == 'y') {
-                pline("Do you know what lives in this water?");
+            if (y_n("¿Beber el agua que te rodea?") == 'y') {
+                pline("¿Sabés qué vive en esta agua?");
                 return ECMD_TIME;
             }
             ++drink_ok_extra;
         }
     }
 
-    otmp = getobj("drink", drink_ok, GETOBJ_NOFLAGS);
+    otmp = getobj("beber", drink_ok, GETOBJ_NOFLAGS);
     if (!otmp)
         return ECMD_CANCEL;
 
@@ -2265,7 +2265,7 @@ hold_potion(
 int
 dodip(void)
 {
-    static const char Dip_[] = "Dip ";
+    static const char Dip_[] = "Sumergir ";
     struct obj *potion, *obj;
     char qbuf[QBUFSZ], obuf[QBUFSZ];
     const char *shortestname; /* last resort obj name for prompt */
@@ -2275,15 +2275,15 @@ dodip(void)
             at_here = (!iflags.menu_requested
                        && (at_pool || at_fountain || at_sink));
 
-    obj = getobj("dip", at_here ? dip_hands_ok : dip_ok, GETOBJ_PROMPT);
+    obj = getobj("sumergir", at_here ? dip_hands_ok : dip_ok, GETOBJ_PROMPT);
     if (!obj)
         return ECMD_CANCEL;
-    if (inaccessible_equipment(obj, "dip", FALSE))
+    if (inaccessible_equipment(obj, "sumergir", FALSE))
         return ECMD_OK;
 
     is_hands = (obj == &hands_obj);
-    shortestname = (is_hands || is_plural(obj) || pair_of(obj)) ? "them"
-                                                                : "it";
+    shortestname = (is_hands || is_plural(obj) || pair_of(obj)) ? "ellos"
+                                                                : "eso";
     drink_ok_extra = 0;
     /*
      * Bypass safe_qbuf() since it doesn't handle varying suffix without
@@ -2295,7 +2295,7 @@ dodip(void)
      * getobj: "What do you want to dip <the object> into? [xyz or ?*] "
      */
     if (is_hands) {
-        Snprintf(obuf, sizeof obuf, "your %s", makeplural(body_part(HAND)));
+        Snprintf(obuf, sizeof obuf, "tus %s", makeplural(body_part(HAND)));
     } else {
         Strcpy(obuf, short_oname(obj, doname, thesimpleoname,
                                  /* 128 - (24 + 54 + 1) leaves 49 for
@@ -2311,7 +2311,7 @@ dodip(void)
         if (!can_reach_floor(FALSE)) {
             ; /* can't dip something into fountain or pool if can't reach */
         } else if (at_fountain) {
-            Snprintf(qbuf, sizeof(qbuf), "%s%s into the fountain?", Dip_,
+            Snprintf(qbuf, sizeof(qbuf), "%s%s en la fuente?", Dip_,
                      flags.verbose ? obuf : shortestname);
             /* "Dip <the object> into the fountain?" */
             if (y_n(qbuf) == 'y') {
@@ -2322,7 +2322,7 @@ dodip(void)
             }
             ++drink_ok_extra;
         } else if (at_sink) {
-            Snprintf(qbuf, sizeof(qbuf), "%s%s into the sink?", Dip_,
+            Snprintf(qbuf, sizeof(qbuf), "%s%s en el fregadero?", Dip_,
                      flags.verbose ? obuf : shortestname);
             if (y_n(qbuf) == 'y') {
                 if (!is_hands)
@@ -2334,7 +2334,7 @@ dodip(void)
         } else if (at_pool) {
             const char *pooltype = waterbody_name(u.ux, u.uy);
 
-            Snprintf(qbuf, sizeof(qbuf), "%s%s into the %s?", Dip_,
+            Snprintf(qbuf, sizeof(qbuf), "%s%s en %s?", Dip_,
                      flags.verbose ? obuf : shortestname, pooltype);
             /* "Dip <the object> into the {pool, moat, &c}?" */
             if (y_n(qbuf) == 'y') {
@@ -2362,7 +2362,7 @@ dodip(void)
     }
 
     /* "What do you want to dip <the object> into? [xyz or ?*] " */
-    Snprintf(qbuf, sizeof qbuf, "dip %s into",
+    Snprintf(qbuf, sizeof qbuf, "sumergir %s en",
              flags.verbose ? obuf : shortestname);
     potion = getobj(qbuf, drink_ok, GETOBJ_NOFLAGS);
     if (!potion)
@@ -2388,17 +2388,17 @@ dip_into(void)
        a potion to dip into */
     drink_ok_extra = 0; /* affects drink_ok(): haven't been asked about and
                          * declined to use a floor feature like a fountain */
-    potion = getobj("dip", drink_ok, GETOBJ_NOFLAGS);
+    potion = getobj("sumergir", drink_ok, GETOBJ_NOFLAGS);
     if (!potion || potion->oclass != POTION_CLASS)
         return ECMD_CANCEL;
 
     /* "What do you want to dip into <the potion>? [abc or ?*] " */
-    Snprintf(qbuf, sizeof qbuf, "dip into %s%s",
-             is_plural(potion) ? "one of " : "", thesimpleoname(potion));
+    Snprintf(qbuf, sizeof qbuf, "sumergir en %s%s",
+             is_plural(potion) ? "uno de " : "", thesimpleoname(potion));
     obj = getobj(qbuf, dip_ok, GETOBJ_PROMPT);
     if (!obj)
         return ECMD_CANCEL;
-    if (inaccessible_equipment(obj, "dip", FALSE))
+    if (inaccessible_equipment(obj, "sumergir", FALSE))
         return ECMD_OK;
     return potion_dip(obj, potion);
 }

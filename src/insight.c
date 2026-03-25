@@ -2077,7 +2077,7 @@ youhiding(boolean via_enlghtmt, /* enlightenment line vs topl message */
         you_are(buf, "");
     } else {
         /* for dohide(), when player uses '#monster' command */
-        You("are %s %s.", msgflag ? "already" : "now", buf);
+        You("estás %s %s.", msgflag ? "ya" : "ahora", buf);
     }
 }
 
@@ -2849,7 +2849,7 @@ list_vanquished(char defquery, boolean ask)
                 if (defquery == 'a') /* potential default from 'disclose' */
                     defquery = 'y';
             }
-            c = yn_function("Do you want an account of creatures vanquished?",
+            c = yn_function("¿Querés un listado de criaturas derrotadas?",
                             allow_yn, defquery, TRUE);
         } else {
             c = defquery;
@@ -2870,7 +2870,7 @@ list_vanquished(char defquery, boolean ask)
                             && ntypes > 1);
 
             klwin = create_nhwindow(NHW_MENU);
-            putstr(klwin, 0, "Vanquished creatures:");
+            putstr(klwin, 0, "Criaturas derrotadas:");
             if (!dumping)
                 putstr(klwin, 0, "");
 

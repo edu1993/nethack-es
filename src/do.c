@@ -132,7 +132,7 @@ boulder_hits_pool(
             } else if (lava && next2u(rx, ry)) {
                 int dmg;
 
-                You("are hit by molten %s%c",
+                You("eres golpeado por %s fundido%c",
                     hliquid("lava"), Fire_resistance ? '.' : '!');
                 burn_away_slime();
                 dmg = d((Fire_resistance ? 1 : 3), 6);
@@ -666,7 +666,7 @@ canletgo(struct obj *obj, const char *word)
 {
     if (obj->owornmask & (W_ARMOR | W_ACCESSORY)) {
         if (*word)
-            Norep("You cannot %s %s you are wearing.", word, something);
+            Norep("No puedes %s %s que estás usando.", word, something);
         return FALSE;
     }
     if (obj == uwep && welded(uwep)) {
@@ -704,7 +704,7 @@ canletgo(struct obj *obj, const char *word)
     }
     if (obj->owornmask & W_SADDLE) {
         if (*word)
-            You("cannot %s %s you are sitting on.", word, something);
+            You("no puedes %s %s en lo que estás sentado.", word, something);
         return FALSE;
     }
     return TRUE;
@@ -1111,10 +1111,10 @@ u_stuck_cannot_go(const char *updn)
 {
     if (u.ustuck) {
         if (u.uswallow || !sticks(gy.youmonst.data)) {
-            You("are %s, and cannot go %s.",
-                !u.uswallow ? "being held"
-                : digests(u.ustuck->data) ? "swallowed"
-                : "engulfed", updn);
+            You("estás %s, y no puedes ir %s.",
+                !u.uswallow ? "siendo sujetado"
+                : digests(u.ustuck->data) ? "siendo tragado"
+                : "siendo engullido", updn);
             return TRUE;
         } else {
             struct monst *mtmp = u.ustuck;
@@ -1190,10 +1190,10 @@ dodown(void)
                 ladder_down = (glyph_to_cmap(glyph_at_uxuy) == S_dnladder);
         }
         if (Is_airlevel(&u.uz))
-            You("are floating in the %s.", surface(u.ux, u.uy));
+            You("estás flotando en %s.", surface(u.ux, u.uy));
         else if (Is_waterlevel(&u.uz))
-            You("are floating in %s.",
-                is_pool(u.ux, u.uy) ? "the water" : "a bubble of air");
+            You("estás flotando en %s.",
+                is_pool(u.ux, u.uy) ? "el agua" : "una burbuja de aire");
         else
             floating_above(stairs_down ? "stairs"
                            : ladder_down ? "ladder"
@@ -1240,7 +1240,7 @@ dodown(void)
         }
     }
     if (on_level(&valley_level, &u.uz) && !u.uevent.gehennom_entered) {
-        You("are standing at the gate to Gehennom.");
+        You("estás parado en la puerta de Gehennom.");
         pline("Unspeakable cruelty and harm lurk down there.");
         if (y_n("Are you sure you want to enter?") != 'y')
             return ECMD_OK;
@@ -1249,7 +1249,7 @@ dodown(void)
     }
 
     if (!next_to_u()) {
-        You("are held back by your pet!");
+        You("estás detenido por tu mascota!");
         return ECMD_OK;
     }
 
@@ -1334,7 +1334,7 @@ doup(void)
             return ECMD_OK;
     }
     if (!next_to_u()) {
-        You("are held back by your pet!");
+        You("estás detenido por tu mascota!");
         return ECMD_OK;
     }
     ga.at_ladder = (boolean) (levl[u.ux][u.uy].typ == LADDER);
@@ -2023,7 +2023,7 @@ temperature_change_msg(schar prev_temperature)
                       In_hell(&u.uz0)
                       ? "and smoke are" : "is");
         else if (prev_temperature < 0)
-            You("are out of the cold.");
+            You("estás fuera del frío.");
     }
 }
 

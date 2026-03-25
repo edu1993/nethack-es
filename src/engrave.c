@@ -1117,7 +1117,7 @@ doengrave(void)
         } else if (de->type == de->oep->engr_type
                    && (!Blind || de->oep->engr_type == BURN
                        || de->oep->engr_type == ENGRAVE)) {
-            c = yn_function("Do you want to add to the current engraving?",
+            c = yn_function("¿Querés agregar a la inscripción actual?",
                             ynqchars, 'y', TRUE);
             if (c == 'q') {
                 pline1(Never_mind);
@@ -1184,7 +1184,7 @@ doengrave(void)
             de->everb, de->eloc, body_part(FINGERTIP));
 
     /* Prompt for engraving! */
-    Sprintf(de->qbuf, "What do you want to %s the %s here?",
+    Sprintf(de->qbuf, "¿Qué querés %s en el/la %s aquí?",
             de->everb, de->eloc);
     getlin(de->qbuf, de->ebuf);
     /* convert tabs to spaces and condense consecutive spaces to one */
@@ -1246,7 +1246,7 @@ doengrave(void)
     if (de->post_engr_text[0])
         pline("%s", de->post_engr_text);
     if (de->doblind && !resists_blnd(&gy.youmonst)) {
-        You("are blinded by the flash!");
+        You("estás cegado por el destello!");
         make_blinded((long) rnd(50), FALSE);
         if (!Blind)
             Your1(vision_clears);
@@ -1285,7 +1285,7 @@ engrave(void)
 
     if (svc.context.engraving.pos.x != u.ux
         || svc.context.engraving.pos.y != u.uy) { /* teleported? */
-        You("are unable to continue engraving.");
+        You("no puedes continuar grabando.");
         return 0;
     }
     /* Stylus might have been taken out of inventory and destroyed somehow.
@@ -1298,7 +1298,7 @@ engrave(void)
                 break;
         }
         if (!stylus) {
-            You("are unable to continue engraving.");
+            You("no puedes continuar grabando.");
             return 0;
         }
     }
@@ -1449,7 +1449,7 @@ engrave(void)
      * can't go any further. */
     if (truncate && *endc != '\0') {
         *endc = '\0';
-        You("are only able to write \"%s\".", svc.context.engraving.text);
+        You("solo puedes escribir \"%s\".", svc.context.engraving.text);
     } else {
         /* input was not truncated; stylus may still have worn out on the last
          * character, though */

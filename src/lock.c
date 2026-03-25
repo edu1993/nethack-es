@@ -107,29 +107,29 @@ picklock(void)
         gx.xlock.chance += 20; /* less effort needed next time */
         if (!gx.xlock.door) {
             if (!gx.xlock.box->tknown)
-                You("find a trap!");
+                You("encontrás una trampa!");
             gx.xlock.box->tknown = 1;
         }
-        if (y_n("Do you want to try to disarm it?") == 'y') {
+        if (y_n("¿Querés intentar desactivarla?") == 'y') {
             const char *what;
             boolean alreadyunlocked;
 
             /* disarming while using magic key always succeeds */
             if (gx.xlock.door) {
                 gx.xlock.door->doormask &= ~D_TRAPPED;
-                what = "door";
+                what = "puerta";
                 alreadyunlocked = !(gx.xlock.door->doormask & D_LOCKED);
             } else {
                 gx.xlock.box->otrapped = 0;
                 gx.xlock.box->tknown = 0;
-                what = (gx.xlock.box->otyp == CHEST) ? "chest" : "box";
+                what = (gx.xlock.box->otyp == CHEST) ? "cofre" : "caja";
                 alreadyunlocked = !gx.xlock.box->olocked;
             }
-            You("succeed in disarming the trap.  The %s is still %slocked.",
-                what, alreadyunlocked ? "un" : "");
+            You("lográs desactivar la trampa. El/la %s todavía está %sbloqueado.",
+                what, alreadyunlocked ? "des" : "");
             exercise(A_WIS, TRUE);
         } else {
-            You("stop %s.", lock_action());
+            You("dejás de %s.", lock_action());
             exercise(A_WIS, FALSE);
         }
         return ((gx.xlock.usedtime = 0));

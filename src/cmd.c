@@ -962,21 +962,21 @@ enter_explore_mode(void)
                 return ECMD_OK;
             } else {
                 pline(
-                 "Note: normally you wouldn't be allowed into explore mode.");
+                 "Nota: normalmente no se te permitiría entrar al modo exploración.");
                 /* keep going */
             }
         }
-        pline("Beware!  From explore mode there will be no return to %s,",
+        pline("¡Cuidado! Desde el modo exploración no vas a poder volver a %s,",
               oldmode);
         if (paranoid_query(ParanoidQuit,
-                           "Do you want to enter explore mode?")) {
+                           "¿Querés entrar al modo exploración?")) {
             discover = TRUE;
             wizard = FALSE;
             clear_nhwindow(WIN_MESSAGE);
-            You("are now in non-scoring explore mode.");
+            You("ahora estás en modo exploración (sin puntaje).");
         } else {
             clear_nhwindow(WIN_MESSAGE);
-            pline("Continuing with %s.", oldmode);
+            pline("Continuando con %s.", oldmode);
         }
     }
     return ECMD_OK;
@@ -3828,7 +3828,7 @@ rhack(int key)
     }
 
     if (bad_command) {
-        custompline(SUPPRESS_HISTORY, "Unknown command '%s'.", visctrl(key));
+        custompline(SUPPRESS_HISTORY, "Comando desconocido '%s'.", visctrl(key));
         cmdq_clear(CQ_CANNED);
         cmdq_clear(CQ_REPEAT);
         iflags.sanity_no_check = iflags.sanity_check; /* skip sanity check */
@@ -4877,7 +4877,7 @@ there_cmd_menu(coordxy x, coordxy y, int mod)
         act_on_act(act, dx, dy);
         return '\0';
     } else {
-        end_menu(win, "What do you want to do?");
+        end_menu(win, "¿Qué querés hacer?");
         npick = select_menu(win, PICK_ONE, &picks);
         ch = '\033';
     }
@@ -5346,12 +5346,12 @@ dotravel_target(void)
 {
     if (!isok(iflags.travelcc.x, iflags.travelcc.y)) {
         /* assume <0,0>, the value assigned when travel reaches destination */
-        pline("No travel destination set.");
+        pline("No hay un destino de viaje establecido.");
         return ECMD_OK;
     } else if (u_at(iflags.travelcc.x, iflags.travelcc.y)) {
         /* maybe interrupted while traveling then just walked rest of way
            so destination hasn't been reset yet */
-        You("are already here.");
+        You("ya estás acá.");
         iflags.travelcc.x = iflags.travelcc.y = 0;
         return ECMD_OK;
     }
@@ -5427,19 +5427,19 @@ yn_function_menu(
 
         start_menu(win, MENU_BEHAVE_STANDARD);
         if (resp == rightleftchars) {
-            yn_func_menu_opt(win, 'r', "Right", def);
-            yn_func_menu_opt(win, 'l', "Left", def);
+            yn_func_menu_opt(win, 'r', "Derecha", def);
+            yn_func_menu_opt(win, 'l', "Izquierda", def);
         } else if (resp == hidespinchars) {
-            yn_func_menu_opt(win, 'h', "Hide", def);
-            yn_func_menu_opt(win, 's', "Spin a web", def);
+            yn_func_menu_opt(win, 'h', "Esconderse", def);
+            yn_func_menu_opt(win, 's', "Tejer una telaraña", def);
         } else {
-            yn_func_menu_opt(win, 'y', "Yes", def);
+            yn_func_menu_opt(win, 'y', "Sí", def);
             yn_func_menu_opt(win, 'n', "No", def);
         }
         if (resp == ynaqchars)
-            yn_func_menu_opt(win, 'a', "All", def);
+            yn_func_menu_opt(win, 'a', "Todo", def);
         if (resp == ynqchars || resp == ynaqchars || resp == hidespinchars)
-            yn_func_menu_opt(win, 'q', "Quit", def);
+            yn_func_menu_opt(win, 'q', "Salir", def);
         end_menu(win, query);
         n = select_menu(win, PICK_ONE, &sel);
         destroy_nhwindow(win);
@@ -5595,13 +5595,13 @@ paranoid_ynq(
     if (be_paranoid) {
         char pbuf[BUFSZ], qbuf[QBUFSZ], ans[BUFSZ];
         const char *promptprefix = "", /* empty for first iteration */
-            *responsetype = ParanoidConfirm ? (accept_q ? "[yes|no|quit]"
-                                               : "[yes|no]")
+            *responsetype = ParanoidConfirm ? (accept_q ? "[sí|no|salir]"
+                                               : "[sí|no]")
                                             /* default of 'n' is shown for
                                              * the !ParanoidConfirm cases */
-                                            : (accept_q ? "[yes|n|q] (n)"
-                                               : "[yes|n] (n)");
-        int k, trylimit = 6; /* 1 normal, 5 more with "Yes or No:" prefix */
+                                            : (accept_q ? "[sí|n|salir] (n)"
+                                               : "[sí|n] (n)");
+        int k, trylimit = 6; /* 1 normal, 5 more with "Sí o No:" prefix */
 
         copynchars(pbuf, prompt, BUFSZ - 1);
         /* in addition to being paranoid about this particular
@@ -5622,16 +5622,18 @@ paranoid_ynq(
             *ans = '\0';
             getlin(qbuf, ans);
             (void) mungspaces(ans);
-            if (!strcmpi(ans, "yes")) {
+            if (!strcmpi(ans, "yes") || !strcmpi(ans, "si")
+                || !strcmpi(ans, "sí")) {
                 c = 'y';
                 break;
             }
-            if (!strcmpi(ans, "quit") || *ans == '\033') {
+            if (!strcmpi(ans, "quit") || !strcmpi(ans, "salir")
+                || *ans == '\033') {
                 c = 'q';
                 break;
             }
             /* we don't bother adding "or \"Quit\"" for the accept_q case */
-            promptprefix = "\"Yes\" or \"No\": ";
+            promptprefix = "\"Sí\" o \"No\": ";
             /* for empty input, return value c will already be 'n' */
         } while (ParanoidConfirm && strcmpi(ans, "no") && --trylimit);
     } else if (accept_q) {
