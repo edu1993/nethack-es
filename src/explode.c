@@ -599,7 +599,7 @@ explode(
                 } while (*hallu_buf != lowc(*hallu_buf));
                 str = hallu_buf;
             }
-            You("are caught in the %s!", str);
+            You("estás atrapado en %s!", str);
             iflags.last_msg = PLNMSG_CAUGHT_IN_EXPLOSION;
         }
         /* do property damage first, in case we end up leaving bones */
@@ -607,7 +607,7 @@ explode(
             burn_away_slime();
         if (Invulnerable) {
             damu = 0;
-            You("are unharmed!");
+            You("estás ileso!");
         } else if (adtyp == AD_PHYS || adtyp == AD_ACID)
             damu = Maybe_Half_Phys(damu);
         if (adtyp == AD_FIRE) {

@@ -320,7 +320,7 @@ do_pit(coordxy x, coordxy y, unsigned tu_pit)
                      && (!(rnl(Role_if(PM_ARCHEOLOGIST) ? 3 : 9))
                          || ((ACURR(A_DEX) > 7) && rn2(5))));
 
-            You("are jostled around violently!");
+            You("estás sacudido violentamente!");
             set_utrap(rn1(6, 2), TT_PIT);
             losehp(Maybe_Half_Phys(rnd(keepfooting ? 2 : 4)),
                    "hurt in a chasm", NO_KILLER_PREFIX);
@@ -770,7 +770,7 @@ do_play_instrument(struct obj *instr)
                 || instr->otyp == TOOLED_HORN || instr->otyp == FROST_HORN
                 || instr->otyp == FIRE_HORN || instr->otyp == BUGLE)
                && !can_blow(&gy.youmonst)) {
-        You("are incapable of playing %s.", thesimpleoname(instr));
+        You("eres incapaz de tocar %s.", thesimpleoname(instr));
         return ECMD_OK;
     }
     if (instr->otyp != LEATHER_DRUM && instr->otyp != DRUM_OF_EARTHQUAKE

@@ -170,11 +170,11 @@ ready_weapon(struct obj *wep)
     if (!wep) {
         /* No weapon */
         if (uwep) {
-            You("are %s.", empty_handed());
+            You("estás %s.", empty_handed());
             setuwep((struct obj *) 0);
             res = ECMD_TIME;
         } else
-            You("are already %s.", empty_handed());
+            You("ya estás %s.", empty_handed());
     } else if (wep->otyp == CORPSE && cant_wield_corpse(wep)) {
         /* hero must have been life-saved to get here; use a turn */
         res = ECMD_TIME; /* corpse won't be wielded */
@@ -370,7 +370,7 @@ dowield(void)
         return ECMD_CANCEL;
     } else if (wep == uwep) {
  already_wielded:
-        You("are already wielding that!");
+        You("ya estás blandiendo eso.");
         if (is_weptool(wep) || is_wet_towel(wep))
             gu.unweapon = FALSE; /* [see setuwep()] */
         return ECMD_FAIL;

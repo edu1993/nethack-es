@@ -1245,7 +1245,7 @@ pleased(aligntyp g_align)
             /*FALLTHRU*/
         case 2:
             if (!Blind)
-                You("are surrounded by %s glow.", an(hcolor(NH_GOLDEN)));
+                You("estás rodeado por un brillo %s.", an(hcolor(NH_GOLDEN)));
             /* if any levels have been lost (and not yet regained),
                treat this effect like blessed full healing */
             if (u.ulevel < u.ulevelmax) {
@@ -1287,7 +1287,7 @@ pleased(aligntyp g_align)
             if (Blind)
                 You_feel("the power of %s.", u_gname());
             else
-                You("are surrounded by %s aura.", an(hcolor(NH_LIGHT_BLUE)));
+                You("estás rodeado por un aura %s.", an(hcolor(NH_LIGHT_BLUE)));
             for (otmp = gi.invent; otmp; otmp = nextobj) {
                 nextobj = otmp->nobj;
                 if (otmp->cursed
@@ -1754,7 +1754,7 @@ sacrifice_your_race(
             You("have summoned %s!", dbuf);
             if (sgn(u.ualign.type) == sgn(dmon->data->maligntyp))
                 dmon->mpeaceful = TRUE;
-            You("are terrified, and unable to move.");
+            You("estás aterrorizado, y no puedes moverte.");
             nomul(-3);
             gm.multi_reason = "being terrified of a demon";
             gn.nomovemsg = 0;
@@ -1858,11 +1858,11 @@ dosacrifice(void)
     aligntyp altaralign = a_align(u.ux, u.uy);
 
     if (!on_altar() || u.uswallow) {
-        You("are not %s an altar.",
-            (Levitation || Flying) ? "over" : "on");
+        You("no estás %s un altar.",
+            (Levitation || Flying) ? "encima de" : "en");
         return ECMD_OK;
     } else if (Confusion || Stunned) {
-        You("are too impaired to perform the rite.");
+        You("estás demasiado alterado para realizar el rito.");
         return ECMD_OK;
     }
     highaltar = (levl[u.ux][u.uy].altarmask & AM_SANCTUM);
@@ -2265,7 +2265,7 @@ dopray(void)
     if (gp.p_type == 3 && !Inhell) {
         /* if you've been true to your god you can't die while you pray */
         if (!Blind)
-            You("are surrounded by a shimmering light.");
+            You("estás rodeado por una luz centelleante.");
         u.uinvulnerable = TRUE;
     }
 
@@ -2431,8 +2431,7 @@ doturn(void)
     /* [What about needing free hands (does #turn involve any gesturing)?] */
     if (!can_chant(&gy.youmonst)) {
         /* "evilness": "demons and undead" is too verbose and too precise */
-        You("are %s upon %s to turn aside evilness.",
-            Strangled ? "not able to call" : "incapable of calling", Gname);
+        You("estás demasiado alterado para realizar el rito.");
         /* violates agnosticism due to intent; conduct tracking is not
            supposed to affect play but we make an exception here:  use a
            move if this is the first time agnostic conduct has been broken */

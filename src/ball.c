@@ -794,7 +794,7 @@ drag_ball(coordxy x, coordxy y, int *bc_control,
         } else {
             struct monst *victim;
 
-            You("are jerked back by the iron ball!");
+            You("eres jalado hacia atrás por la bola de hierro!");
             if ((victim = m_at(uchain->ox, uchain->oy)) != 0) {
                 int tmp;
                 int dieroll = rnd(20);

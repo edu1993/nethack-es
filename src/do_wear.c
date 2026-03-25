@@ -93,7 +93,7 @@ on_msg(struct obj *otmp)
         how[0] = '\0';
         if (otmp->otyp == TOWEL)
             Sprintf(how, " around your %s", body_part(HEAD));
-        You("are now wearing %s%s.",
+        You("ahora estás usando %s%s.",
             obj_is_pname(otmp) ? the(otmp_name) : an(otmp_name), how);
     }
 }
@@ -1771,7 +1771,7 @@ staticfn int
 armor_or_accessory_off(struct obj *obj)
 {
     if (!(obj->owornmask & (W_ARMOR | W_ACCESSORY))) {
-        You("are not wearing that.");
+        You("no estás usando eso.");
         return ECMD_OK;
     }
     if (obj == uskin
@@ -2010,7 +2010,7 @@ armoroff(struct obj *otmp)
 staticfn void
 already_wearing(const char *cc)
 {
-    You("are already wearing %s%c", cc, (cc == c_that_) ? '!' : '.');
+    You("ya estás usando %s%c", cc, (cc == c_that_) ? '!' : '.');
 }
 
 staticfn void
@@ -2729,7 +2729,7 @@ select_off(struct obj *otmp)
     /* special glove checks */
     if (otmp == uarmg) {
         if (welded(uwep)) {
-            You("are unable to take off your %s while wielding that %s.",
+            You("no puedes quitarte tu %s mientras blandes esa %s.",
                 c_gloves, is_sword(uwep) ? c_sword : c_weapon);
             set_bknown(uwep, 1);
             return 0;
@@ -3029,7 +3029,7 @@ doddoremarm(void)
         return ECMD_OK;
     } else if (!uwep && !uswapwep && !uquiver && !uamul && !ublindf
                && !uleft && !uright && !wearing_armor()) {
-        You("are not wearing anything.");
+        You("no estás usando nada.");
         return ECMD_OK;
     }
 

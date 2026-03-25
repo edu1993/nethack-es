@@ -300,7 +300,7 @@ ok_to_throw(int *shotlimit_p) /* (see dothrow()) */
     gm.multi = 0; /* reset; it's been used up */
 
     if (notake(gy.youmonst.data)) {
-        You("are physically incapable of throwing or shooting anything.");
+        You("eres físicamente incapaz de lanzar o disparar nada.");
         return FALSE;
     } else if (nohands(gy.youmonst.data)) {
         You_cant("throw or shoot without hands."); /* not body_part(HAND) */
@@ -1092,12 +1092,12 @@ hurtle(int dx, int dy, int range, boolean verbose)
         nomul(0);
         return;
     } else if (u.utrap) {
-        You("are anchored by the %s.",
-            (u.utraptype == TT_WEB) ? "web"
+        You("estás anclado por %s.",
+            (u.utraptype == TT_WEB) ? "la telaraña"
             : (u.utraptype == TT_LAVA) ? hliquid("lava")
               : (u.utraptype == TT_INFLOOR) ? surface(u.ux, u.uy)
-                : (u.utraptype == TT_BURIEDBALL) ? "buried ball"
-                  : "trap");
+                : (u.utraptype == TT_BURIEDBALL) ? "la bola enterrada"
+                  : "la trampa");
         nomul(0);
         return;
     }

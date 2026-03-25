@@ -1,218 +1,216 @@
-         NetHack 3.7.0 work-in-progress -- General information
+         NetHack 3.7.0 trabajo en progreso -- Información general
 
-NetHack 3.7 is an enhancement to the dungeon exploration game NetHack,
-which is a distant descendent of Rogue and Hack, and a direct descendent of
+NetHack 3.7 es una mejora al juego de exploración de mazmorras NetHack,
+cual es un descendiente lejano de Rogue y Hack, y un descendiente directo de
 NetHack 3.6.
 
-NetHack 3.7.0 work-in-progress is not a release of NetHack. As a .0 version,
-and still very early in its development cycle, there has already been changes
-made, and there will continue to be many more prior to an eventual release.
-The file doc/fixes3-7-0.txt in the source distribution will be updated with
-a list of fixes as they are committed.
+NetHack 3.7.0 trabajo en progreso no es una versión de NetHack. Como una versión .0,
+y todavía está muy temprano en su ciclo de desarrollo, ya ha habido cambios
+hechos, y habrá muchos más antes de una versión eventual.
+El archivo doc/fixes3-7-0.txt en la distribución fuente será actualizado con
+una lista de correcciones a medida que se comprometan.
 
-In short -- there are likely to be bugs. Don't treat NetHack-3.7 branch as
-released code, and if stability is paramount, then the most recent
-NetHack 3.6.7 release is safest for you.
+En resumen -- es probable que haya errores. No trates la rama NetHack-3.7 como
+código liberado, y si la estabilidad es lo más importante, entonces la versión más reciente
+NetHack 3.6.7 es la más segura para ti.
 
-We're making the .0 work-in-progress available so that you can observe, test
-out, and contribute to its development. Constructive suggestions, GitHub pull
-requests, and bug reports are all welcome and encouraged.
+Estamos haciendo disponible la versión .0 trabajo en progreso para que puedas observar, probar
+y contribuir a su desarrollo. Sugerencias constructivas, solicitudes de GitHub pull
+y reportes de errores son todos bienvenidos y alentados.
 
-The file doc/fixes3-7-0.txt in the source distribution has a full list of
-bug-fixes included so far, as well as brief mentions of some of the other code
-changes. The text in there was written for the development team's own use and is
-provided  "as is", so please do not ask us to further explain the entries in
-that file. Some entries might be considered "spoilers", particularly in the
-"new features" section.
+El archivo doc/fixes3-7-0.txt en la distribución fuente tiene una lista completa de
+correcciones incluidas hasta ahora, así como menciones breves de algunos de los otros cambios de código.
+El texto en ese archivo fue escrito para el uso del equipo de desarrollo y se proporciona
+ "tal como está", así que por favor no nos pidas que expliquemos más las entradas en
+ese archivo. Algunas entradas podrían considerarse "spoilers", particularmente en la
+sección "nuevas características".
 
-Along with the game improvements and bug fixes, NetHack 3.7 strives to make
-some general architectural improvements to the game or to its building
-process. Among them:
+Junto con las mejoras del juego y las correcciones de errores, NetHack 3.7 se esfuerza por hacer
+algunas mejoras arquitectónicas generales al juego o a su proceso de construcción. Entre ellas:
 
- *  Remove barriers to building NetHack on one platform and operating system,
-    for later execution on another (possibly quite different) platform and/or
-    operating system. That capability is generally known as "cross-compiling."
-    See the file "Cross-compiling" in the top-level folder for more information
-    on that.
+ * Eliminar barreras para construir NetHack en una plataforma y sistema operativo,
+    para posterior ejecución en otra plataforma y/o sistema operativo
+    potencialmente bastante diferente. Esa capacidad generalmente se conoce como "compilación cruzada."
+    Vea el archivo "Cross-compiling" en la carpeta de nivel superior para más información
+    sobre eso.
 
- *  Replace the build-time "yacc and lex"-based level compiler, the "yacc and
-    lex"-based dungeon compiler, and the quest text file processing done
-    by NetHack's "makedefs" utility, with Lua text alternatives that are
-    loaded and processed by the game during play.
+ * Reemplazar el compilador de tiempo de compilación "yacc y lex" basado en nivel compilador,
+    el compilador de nivel de mazmorras "yacc y lex" basado, y el procesamiento de archivo de texto de misión hecho
+    por la utilidad "makedefs" de NetHack, con alternativas de texto Lua que son
+    cargadas y procesadas por el juego durante el juego.
 
- *  Write game savefiles and bonesfiles in a more portable and consistent way
-    to open up the possibility of utilizing them between different platforms,
-    such as between your desktop computer and your hand-held device.
+ * Escribir archivos de guardado y bonesfiles de una manera más portable y consistente
+    para abrir la posibilidad de utilizarlos entre diferentes plataformas,
+    como entre tu computadora de escritorio y tu dispositivo portátil.
 
- *  Add support to make the game restartable without exit (a.k.a. "play again"
-    support). Toward that end, many previously scattered and separate variables
-    have been gathered into central 'ga' through 'gz' structures in
-    decl.h/decl.c. That central ability to reinitialize the variables will
-    benefit the porting effort to some platforms that are under consideration
-    where "play again" is typical.
+ * Añadir soporte para hacer que el juego se reinicie sin salir (soporte de "jugar de nuevo")
+    . Hacia ese fin, muchas variables previamente dispersas y separadas
+    han sido reunidas en la estructura central 'ga' a través de 'gz' en
+    decl.h/decl.c. Esa capacidad central de reinicializar variables
+    beneficiará el esfuerzo de portación a algunas plataformas que están bajo consideración
+    donde "jugar de nuevo" es típico.
 
-Here are some other general notes on the changes in NetHack 3.7 that were not
-considered spoilers:
- -  automatic annotation "gateway to Moloch's Sanctum" for vibrating square
-        level once that square's location becomes known (found or magic
-        mapped); goes away once sanctum temple is found (entered or high altar
-        mapped)
- -  savefile: add support for a tool to deconstruct data structures,
-        that get stored in a savefile, down into their individual fields and
-        save those individual fields instead of the entire struct. The
-        intention is to provide a way to export and transport savefiles
-        between platforms, architectures and data models. 
+Aquí hay algunas notas generales sobre los cambios en NetHack 3.7 que no fueron
+considerados spoilers:
+ -  anotación automática "gateway to Moloch's Sanctum" para el nivel de cuadrado vibrante
+        una vez que la ubicación de ese cuadrado se conoce (encontrado o mapeado mágicamente);
+        desaparece una vez que el templo de santuario se encuentra (ingresado o altar mapeado)
+ -  savefile: agregar soporte para una herramienta para descomponer estructuras de datos,
+        que se almacenan en un archivo de guardado, en sus campos individuales y
+        guardar esos campos individuales en lugar de la estructura completa. La
+        intención es proporcionar una forma de exportar e transportar archivos de guardado
+        entre plataformas, arquitecturas y modelos de datos.
 
                         - - - - - - - - - - -
 
-Please read items (1), (2) and (3) BEFORE doing anything with your new code.
+Por favor lee los elementos (1), (2) y (3) ANTES de hacer algo con tu nuevo código.
 
-1.  Unpack the code in a dedicated new directory.  We will refer to that
-    directory as the 'Top' directory.  It makes no difference what you
-    call it.
+1.  Descomprime el código en un directorio nuevo dedicado.  Nos referiremos a ese
+    directorio como el directorio 'Top'.  No importa cómo lo llames.
 
-2.  Having unpacked, you should have a file called 'Files' in your Top
-    directory.
+2.  Después de descomprimir, deberías tener un archivo llamado 'Files' en tu directorio Top.
 
-    This file contains the list of all the files you now SHOULD
-    have in each directory.  Please check the files in each directory
-    against this list to make sure that you have a complete set.
+    Este archivo contiene la lista de todos los archivos que ahora DEBES
+    tener en cada directorio.  Por favor, verifica los archivos en cada directorio
+    contra esta lista para asegurarte de que tienes un conjunto completo.
 
-    This file also contains a list of what files are created during
-    the build process.
+    Este archivo también contiene una lista de qué archivos se crean durante
+el proceso de compilación.
 
-    The names of the directories listed should not be changed unless you
-    are ready to go through the makefiles and the makedefs program and change
-    all the directory references in them.
+    Los nombres de los directorios listados no deben ser cambiados a menos que estés
+listo para pasar por los makefiles y el programa makedefs y cambiar
+todas las referencias de directorios en ellos.
 
-3.  Before you do anything else, please read carefully the file called
-    "license" in the 'dat' subdirectory.  It is expected that you comply
-    with the terms of that license, and we are very serious about it.
+3.  Antes de hacer cualquier otra cosa, por favor lee cuidadosamente el archivo llamado
+"licencia" en el subdirectorio 'dat'. Se espera que cumplas con
+los términos de esa licencia, y nos tomamos eso muy en serio.
 
-4.  If you are attempting to build NetHack on one platform/processor, to
-    produce a game on a different platform/processor it may behoove you to
-    read the file "Cross-compiling" in your Top directory.
+4.  Si estás intentando construir NetHack en una plataforma/procesador, para
+    producir un juego en una plataforma/procesador diferente, puede ser útil
+    leer el archivo "Cross-compiling" en tu directorio Top.
 
-5.  If everything is in order, you can now turn to trying to get the program
-    to compile and run on your particular system.  It is worth mentioning
-    that the default configuration is SysV/Sun/Solaris2.x (simply because
-    the code was housed on such a system).
+5.  Si todo está en orden, puedes ahora intentar compilar y ejecutar el programa
+    en tu sistema particular.  Vale la pena mencionar que la configuración predeterminada es SysV/Sun/Solaris2.x
+    (simplemente porque el código se alojó en ese sistema).
 
-    The files sys/*/Install.* were written to guide you in configuring the
-    program for your operating system.  The files win/*/Install.* are
-    available, where necessary, to help you in configuring the program
-    for particular windowing environments.  Reading them, and the man pages,
-    should answer most of your questions.
+    Los archivos sys/*/Install.* fueron escritos para guiarte en la configuración del
+    programa para tu sistema operativo.  Los archivos win/*/Install.* están
+    disponibles, cuando es necesario, para ayudarte a configurar el programa
+    para entornos de ventanas particulares.  Leerlos, y las páginas del manual,
+    deberían responder a la mayoría de tus preguntas.
 
 
-    At the time of the most recent official release, NetHack 3.6, it had
-    been tested to run/compile on:
+    En el momento de la versión más reciente oficial, NetHack 3.6, había
+    sido probado para ejecutarse/compilarse en:
 
-        Intel Pentium or better running Linux, BSDI
-        Intel Pentium or better running Windows 10 or 11
-        Intel-based, or Apple M1, M2, M3, M4, M5 Macs running
-            macOS 10.11 (El Capitan) to macOS 26 (Tahoe)
-            (follow the instructions in sys/unix/NewInstall.unx)
-        Intel 80386 or greater running MS-DOS with DPMI
-            built via djgpp compiler (native or Linux-hosted cross-compiler)
-        OpenVMS (aka VMS) V8.4 on Alpha and on Integrity/Itanium/IA64
+        Intel Pentium o mejor ejecutando Linux, BSDI
+        Intel Pentium o mejor ejecutando Windows 10 o 11
+        Intel-based, o Apple M1, M2, M3, M4, M5 Macs ejecutando
+            macOS 10.11 (El Capitan) a macOS 26 (Tahoe)
+            (sigue las instrucciones en sys/unix/NewInstall.unx)
+        Intel 80386 o mayor ejecutando MS-DOS con DPMI
+            construido mediante el compilador djgpp (nativo o compilador cruzado alojado en Linux)
+        OpenVMS (también conocido como VMS) V8.4 en Alpha y en Integrity/Itanium/IA64
 
-    Previous versions of NetHack were tested and known to run on the
-    following systems, but it is unknown if they can still build and
-    execute NetHack 3.6 or NetHack 3.7:
+    Versiones anteriores de NetHack fueron probadas y se sabe que se ejecutan en los siguientes sistemas,
+    pero no se sabe si todavía pueden compilar y ejecutar NetHack 3.6 o NetHack 3.7:
 
-        Apple Macintosh running MacOS 7.5 or higher, LinuxPPC, BeOS 4.0
-        Atari ST/TT/Falcon running TOS (or MultiTOS) with GCC
-        AT&T 3B1 running System V (3.51)
-        AT&T 3B2/600 & 3B2/622 running System V R3.2.1
-        AT&T 3B2/1000 Model 80 running System V R3.2.2
-        AT&T 3B4000 running System V
-        AT&T 6386 running System V R3.2
-        Commodore Amiga running AmigaDOS 3.0 or higher with SAS/C 6.x
-                (but see Makefile.ami about DICE and Manx)
-        Data General AViiON systems running DG/UX
-        DEC Alpha/VMS (aka OpenVMS AXP), running V1.x through V7.1
-        DEC VAX/VMS, running V4.6 through V7.1
-        DEC vaxen running BSD, Ultrix
-        Decstations running Ultrix 3.1, 4.x
-        Encore Multimax running UMAX 4.2
-        Gould NP1 running UTX 3/2
-        HP 9000s300 running HP-UX
-        HP 9000s700 running HP-UX 9.x, 10.x, 11.x
-        H/PC Pro devices running Windows CE 2.11 and higher.
-        IBM PC/RT and RS/6000 running AIX 3.x
-        IBM PS/2 and AT compatibles running OS/2 - 2.0 and up with GCC emx
-        IBM PS/2 and AT compatibles running OS/2 1.1 - 2.0 (and probably
-           Warp) with Microsoft 6.0, and OS/2 2.0 and up with IBM CSet++ 2.0.
-        Intel 80386 or greater (or clone) running 386BSD
-        Intel x86 running a version of Windows 7 or 8 or prior to XP.
-        Mips M2000 running RiscOS 4.1
-        NeXT running Mach (using BSD configuration)
-        Palm Size PC 1.1 devices running Windows CE 2.11
-        Pocket PC devices running Windows CE 3.0 and higher
-        Pyramid 9820x running OSx 4.4c
-        SGI Iris running IRIX
-        Stardent Vistra 800 running SysV R4.0
-        Stride 460 running UniStride 2.1
-        Sun-3s, -4s, and -386is running SunOS 3.x
-        Sun-3s and -386is running SunOS 4.x
-        "Sun SPARC"-based machine running SunOS 4.x, Solaris 2.x, or Solaris 7
+        Apple Macintosh ejecutando MacOS 7.5 o superior, LinuxPPC, BeOS 4.0
+        Atari ST/TT/Falcon ejecutando TOS (o MultiTOS) con GCC
+        AT&T 3B1 ejecutando System V (3.51)
+        AT&T 3B2/600 & 3B2/622 ejecutando System V R3.2.1
+        AT&T 3B2/1000 Modelo 80 ejecutando System V R3.2.2
+        AT&T 3B4000 ejecutando System V
+        AT&T 6386 ejecutando System V R3.2
+        Commodore Amiga ejecutando AmigaDOS 3.0 o superior con SAS/C 6.x
+                (pero vea Makefile.ami sobre DICE y Manx)
+        Data General AViiON sistemas ejecutando DG/UX
+        DEC Alpha/VMS (también conocido como OpenVMS AXP), ejecutando V1.x a V7.1
+        DEC VAX/VMS, ejecutando V4.6 a V7.1
+        DEC vaxen ejecutando BSD, Ultrix
+        Decstations ejecutando Ultrix 3.1, 4.x
+        Encore Multimax ejecutando UMAX 4.2
+        Gould NP1 ejecutando UTX 3/2
+        HP 9000s300 ejecutando HP-UX
+        HP 9000s700 ejecutando HP-UX 9.x, 10.x, 11.x
+        H/PC Pro dispositivos ejecutando Windows CE 2.11 y superior.
+        IBM PC/RT y RS/6000 ejecutando AIX 3.x
+        IBM PS/2 y AT compatibles ejecutando OS/2 - 2.0 y superior con GCC emx
+        IBM PS/2 y AT compatibles ejecutando OS/2 1.1 - 2.0 (y probablemente
+           Warp) con Microsoft 6.0, y OS/2 2.0 y superior con IBM CSet++ 2.0.
+        Intel 80386 o superior (o clon) ejecutando 386BSD
+        Intel x86 ejecutando una versión de Windows 7 o 8 o anterior a XP.
+        Mips M2000 ejecutando RiscOS 4.1
+        NeXT ejecutando Mach (usando configuración BSD)
+        Palm Size PC 1.1 dispositivos ejecutando Windows CE 2.11
+        Pocket PC dispositivos ejecutando Windows CE 3.0 y superior
+        Pyramid 9820x ejecutando OSx 4.4c
+        SGI Iris ejecutando IRIX
+        Stardent Vistra 800 ejecutando SysV R4.0
+        Stride 460 ejecutando UniStride 2.1
+        Sun-3s, -4s, y -386is ejecutando SunOS 3.x
+        Sun-3s y -386is ejecutando SunOS 4.x
+        "Sun SPARC"-based máquina ejecutando SunOS 4.x, Solaris 2.x, o Solaris 7
         Valid Logic Systems SCALD-System
 
-    Previous versions, using a cross-compiler hosted on another platform,
-    such as  win32, could also build the following from source:
-        Pocket PC devices running Windows CE 3.0 and higher
-        H/PC Pro devices running Windows CE 2.11 and higher
-        Palm Size PC 1.1 devices running Windows CE 2.11
+    Versiones anteriores, utilizando un compilador cruzado alojado en otra plataforma,
+    como win32, también pudieron compilar los siguientes desde el código fuente:
+        Pocket PC dispositivos ejecutando Windows CE 3.0 y superior
+        H/PC Pro dispositivos ejecutando Windows CE 2.11 y superior
+        Palm Size PC 1.1 dispositivos ejecutando Windows CE 2.11
 
-    Unless otherwise mentioned, the compiler used was the OS-vendor's
-    C compiler.
+    A menos que se mencione lo contrario, el compilador utilizado fue el compilador C del proveedor de SO.
 
                         - - - - - - - - - - -
 
-If you have problems building the game, or you find bugs in it, we recommend
-filing a bug report from our "Contact Us" web page at:
+Si tienes problemas para compilar el juego, o encuentras errores en él, te recomendamos
+enviar un informe de error desde nuestra página web "Contact Us" en:
     https://www.nethack.org/common/contact.html
-Please include the version information from #version or the command line
-option --version in the appropriate field.
+Por favor, incluye la información de versión de #version o la opción de línea de comandos
+--version en el campo correspondiente.
 
-A public repository of the latest NetHack code that we've made
-available can be obtained via git here:
+Un repositorio público del código de NetHack más reciente que hemos hecho
+disponible se puede obtener a través de git aquí:
     https://github.com/NetHack/NetHack
-      or
+      o
     https://sourceforge.net/p/nethack/NetHack/
 
-When sending correspondence, please observe the following:
-o Please be sure to include your machine type, OS, and patchlevel.
-o Please avoid sending us binary files (e.g. save files or bones files).
-  If you have found a bug and think that your save file would aid in solving
-  the problem, send us a description in words of the problem, your machine
-  type, your operating system, and the version of NetHack.  Tell us that you
-  have a save file, but do not actually send it.
-  You may then be contacted by a member of the development team with the
-  address of a specific person to send the save file to.
-o Though we make an effort to reply to each bug report, it may take some
-  time before you receive feedback.  This is especially true during the
-  period immediately after a new release, when we get the most bug reports.
-o We don't give hints for playing the game.
-o Don't bother to ask when the next version will be out or you can expect
-  to receive a stock answer.
+Al enviar correspondencia, por favor observa lo siguiente:
+o Por favor, asegúrate de incluir tu tipo de máquina, SO y nivel de parche.
+o Por favor, evita enviarnos archivos binarios (por ejemplo, archivos de guardado o bones).
+  Si encuentras un error y piensas que tu archivo de guardado ayudaría a resolver el
+problema, envíanos una descripción en palabras del problema, tu tipo de máquina,
+tu sistema operativo, y la versión de NetHack. Dinos que tienes un
+archivo de guardado, pero no nos lo envíes.
+  Entonces podrías ser contactado por un miembro del equipo de desarrollo con una
+dirección específica a la que enviar el archivo de guardado.
+o Aunque hagamos un esfuerzo por responder a cada informe de error, puede tomar algún
+tiempo antes de que recibas retroalimentación. Esto es especialmente cierto durante el
+período inmediatamente después de un nuevo lanzamiento, cuando recibimos la mayoría de
+los informes de error.
+o Aunque hagamos un esfuerzo por responder a cada informe de error, puede tomar algún
+tiempo antes de que recibas retroalimentación. Esto es especialmente cierto durante el
+período inmediatamente después de un nuevo lanzamiento, cuando recibimos la mayoría de
+los informes de error.
+o No te molestes en preguntar cuándo estará la próxima versión o puedes esperar una
+respuesta estándar.
 
-If you want to submit a patch for the NetHack source code via email directly,
-you can direct it to this address:
+Si quieres enviar un parche para el código fuente de NetHack por correo electrónico directamente,
+puedes dirigirlo a esta dirección:
     nethack-bugs (at) nethack.org
 
-If a feature is not accepted you are free, of course, to post the patches
-to the net yourself and let the marketplace decide their worth.
+Si una característica no es aceptada, eres libre, por supuesto, de publicar los parches
+en la red y dejar que el mercado decida su valor.
 
-All of this amounts to the following:  If you decide to apply a free-lanced
-patch to your 3.6 code, you are welcome to do so, of course, but we won't
-be able to provide support or receive bug reports for it.
+Todo esto equivale a lo siguiente: Si decides aplicar un parche de libre uso a tu código 3.6,
+eres bienvenido a hacerlo, por supuesto. Pero no podremos proporcionar soporte o recibir informes de error para ello.
 
-In our own patches, we will assume that your code is synchronized with ours.
+En nuestros propios parches, asumiremos que tu código está sincronizado con el nuestro.
 
-                  -- Good luck, and happy Hacking --
+                  -- ¡Buena suerte, y feliz hacking --
+
+Nota: Esta versión en español de README se ha traducido para alcanzar a más personas y hacer que el juego sea más accesible. Si encuentras algún error o incoherencia, por favor no dudes en informarnos.
 
 # $NHDT-Date: 1652133501 2022/05/09 21:58:21 $ $NHDT-Branch: NetHack-3.7 $:$NHDT-Revision: 1.97 $
-# Copyright (c) 2012 by Michael Allison
-# NetHack may be freely redistributed.  See license for details.
+# Copyright (c) 2022 por Michael Allison
+# NetHack puede ser redistribuido libremente. Vea la licencia para más detalles.

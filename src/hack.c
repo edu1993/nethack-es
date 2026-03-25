@@ -276,8 +276,8 @@ cannot_push(struct obj *otmp, coordxy sx, coordxy sy)
                           && autopick_testobj(otmp, TRUE));
 
         if (u.usteed && P_SKILL(P_RIDING) < P_BASIC) {
-            You("aren't skilled enough to %s %s from %s.",
-                willpickup ? "pick up" : "push aside",
+            You("no eres lo suficientemente hábil para %s %s de %s.",
+                willpickup ? "recoger" : "apartar",
                 the(xname(otmp)), y_monnam(u.usteed));
         } else {
             /*
@@ -649,7 +649,7 @@ still_chewing(coordxy x, coordxy y)
     } else if (lev->typ == IRONBARS
                && metallivorous(gy.youmonst.data) && u.uhunger > 1500) {
         /* finishing eating via 'morehungry()' doesn't handle choking */
-        You("are too full to eat the bars.");
+        You("estás demasiado lleno para comer las barras.");
         nomul(0);
         return 1;
     } else if (!svc.context.digging.chew
@@ -1140,11 +1140,11 @@ test_move(
             return FALSE;
         case 2:
             if (mode == DO_MOVE)
-                You("are carrying too much to get through.");
+                You("estás cargando demasiado para pasar.");
             return FALSE;
         case 1:
             if (mode == DO_MOVE)
-                Your("body is too large to fit through.");
+                Tu("cuerpo es demasiado grande para caber.");
             return FALSE;
         default:
             break; /* can squeeze through */
@@ -1674,10 +1674,10 @@ boolean
 u_rooted(void)
 {
     if (!gy.youmonst.data->mmove) {
-        You("are rooted %s.",
+        You("estás enraizado %s.",
             Levitation || Is_airlevel(&u.uz) || Is_waterlevel(&u.uz)
-                ? "in place"
-                : "to the ground");
+                ? "en el lugar"
+                : "en el suelo");
         nomul(0);
         return TRUE;
     }
@@ -2324,7 +2324,7 @@ air_turbulence(void)
     if (Is_airlevel(&u.uz) && rn2(4) && !Levitation && !Flying) {
         switch (rn2(3)) {
         case 0:
-            You("tumble in place.");
+            You("tropiezas en el lugar.");
             exercise(A_DEX, FALSE);
             break;
         case 1:
@@ -2431,7 +2431,7 @@ avoid_moving_on_trap(coordxy x, coordxy y, boolean msg)
         && trap->ttyp != VIBRATING_SQUARE) {
         if (msg && flags.mention_walls) {
             set_msg_xy(x, y);
-            You("stop in front of %s.",
+            You("te detienes frente a %s.",
                 an(trapname(trap->ttyp, FALSE)));
         }
         return TRUE;

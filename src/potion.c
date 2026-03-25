@@ -493,7 +493,7 @@ ghost_from_bottle(void)
     pline("As you open the bottle, an enormous %s emerges!",
           Hallucination ? rndmonnam(NULL) : (const char *) "ghost");
     if (flags.verbose)
-        You("are frightened to death, and unable to move.");
+        You("estás aterrorizado hasta la muerte, y no puedes moverte.");
     nomul(-3);
     gm.multi_reason = "being frightened to death";
     gn.nomovemsg = "You regain your composure.";
@@ -880,14 +880,14 @@ staticfn void
 peffect_paralysis(struct obj *otmp)
 {
     if (Free_action) {
-        You("stiffen momentarily.");
+        You("te rigides momentáneamente.");
     } else {
         if (Levitation || Is_airlevel(&u.uz) || Is_waterlevel(&u.uz))
-            You("are motionlessly suspended.");
+            You("estás suspendido sin movimiento.");
         else if (u.usteed)
-            You("are frozen in place!");
+            You("estás congelado en el lugar!");
         else
-            Your("%s are frozen to the %s!", makeplural(body_part(FOOT)),
+            Your("%s están congelados en el %s!", makeplural(body_part(FOOT)),
                  surface(u.ux, u.uy));
         nomul(-(rn1(10, 25 - 12 * bcsign(otmp))));
         gm.multi_reason = "frozen by a potion";
@@ -1004,7 +1004,7 @@ peffect_sickness(struct obj *otmp)
         }
     }
     if (Hallucination) {
-        You("are shocked back to your senses!");
+        You("estás conmocionado hasta los sentidos!");
         (void) make_hallucinated(0L, FALSE, 0L);
     }
 }
@@ -2918,9 +2918,9 @@ void
 speed_up(long duration)
 {
    if (!Very_fast)
-       You("are suddenly moving %sfaster.", Fast ? "" : "much ");
+       You("de repente te mueves %s más rápido.", Fast ? "" : "mucho ");
    else
-       Your("%s get new energy.", makeplural(body_part(LEG)));
+       Tus("%s obtienen nueva energía.", makeplural(body_part(LEG)));
 
    exercise(A_DEX, TRUE);
    incr_itimeout(&HFast, duration);

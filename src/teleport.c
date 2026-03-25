@@ -1342,7 +1342,7 @@ level_tele(void)
             pline("(In fact, you're on Cloud 9!)");
             display_nhwindow(WIN_MESSAGE, FALSE);
         } else
-            You("are now high above the clouds...");
+            You("estás ahora muy por encima de las nubes...");
 
         if (svk.killer.name[0]) {
             ; /* arrival in heaven is pending */
@@ -2276,7 +2276,7 @@ u_teleport_mon(
         return FALSE;
     } else if (engulfing_u(mtmp) && noteleport_level(mtmp)) {
         if (give_feedback)
-            You("are no longer inside %s!", mon_nam(mtmp));
+            You("ya no estás dentro de %s!", mon_nam(mtmp));
         unstuck(mtmp);
         if (!rloc(mtmp, RLOC_MSG))
             m_into_limbo(mtmp);

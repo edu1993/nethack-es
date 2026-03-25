@@ -2480,7 +2480,7 @@ mkinvokearea(void)
         nh_delay_output();
     }
 
-    You("are standing at the top of a stairwell leading down!");
+    You("estás parado en la parte superior de un pozo de escaleras que lleva hacia abajo!");
     mkstairs(u.ux, u.uy, 0, (struct mkroom *) 0, FALSE); /* down */
     newsym(u.ux, u.uy);
     gv.vision_full_recalc = 1; /* everything changed */
